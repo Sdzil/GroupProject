@@ -1,0 +1,54 @@
+修改app.blade.php Done!!
+
+//建立後台管理器
+php artisan make:controller BannerController --resource
+php artisan make:controller ProductController --resource
+php artisan make:controller NewsController --resource
+php artisan make:controller ContactController --resource
+
+//建立資料庫表單及ORM
+php artisan make:model Bannner -m
+php artisan make:model Product -m
+php artisan make:model News -m
+php artisan make:model Contact -m
+
+//對應的controller中記得引用class
+use App\News;  //之類的
+
+//Route設定
+//後台管理系統的Route，群組之後統一在admin做中介認證
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+
+    //Banner管理
+    Route::get('banners', 'BannerController@index');
+    Route::get('banners/create', 'BannerController@create');
+    Route::post('banners/store', 'BannerController@store');
+    Route::get('banners/edit/{id}', 'BannerController@edit');
+    Route::post('banners/update/{id}', 'BannerController@update');
+    Route::get('banners/destroy/{id}', 'BannerController@destroy');
+
+    //產品管理
+    Route::get('products', 'ProductController@index');
+    Route::get('products/create', 'ProductController@create');
+    Route::post('products/store', 'ProductController@store');
+    Route::get('products/edit/{id}', 'ProductController@edit');
+    Route::post('products/update/{id}', 'ProductController@update');
+    Route::get('products/destroy/{id}', 'ProductController@destroy');
+
+    //最新消息管理
+    Route::get('news', 'NewsController@index');
+    Route::get('news/create', 'NewsController@create');
+    Route::post('news/store', 'NewsController@store');
+    Route::get('news/edit/{id}', 'NewsController@edit');
+    Route::post('news/update/{id}', 'NewsController@update');
+    Route::get('news/destroy/{id}', 'NewsController@destroy');
+
+    //聯絡表單管理
+    Route::get('contacts', 'ContactController@index');
+    Route::get('contacts/create', 'ContactController@create');
+    Route::post('contacts/store', 'ContactController@store');
+    Route::get('contacts/edit/{id}', 'ContactController@edit');
+    Route::post('contacts/update/{id}', 'ContactController@update');
+    Route::get('contacts/destroy/{id}', 'ContactController@destroy');
+
+});
