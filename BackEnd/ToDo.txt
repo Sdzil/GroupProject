@@ -1,3 +1,5 @@
+npm run dev //執行mix
+
 修改app.blade.php Done!!
 
 //建立後台管理器 Done!!

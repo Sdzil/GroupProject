@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\ProductType;
+use Illuminate\Support\Facades\DB;
 
 class ProductTypeController extends Controller
 {
@@ -15,7 +16,8 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
-        //
+        $news_list = DB::table('news')->get();
+        return view('.admin.news.index', compact('news_list'));
     }
 
     /**

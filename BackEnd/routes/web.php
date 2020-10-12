@@ -39,12 +39,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::get('products/destroy/{id}', 'ProductController@destroy');
 
     //產品類型管理
-    Route::get('products_type', 'ProductTypeController@index');
-    Route::get('products_type/create', 'ProductTypeController@create');
-    Route::post('products_type/store', 'ProductTypeController@store');
-    Route::get('products_type/edit/{id}', 'ProductTypeController@edit');
-    Route::post('products_type/update/{id}', 'ProductTypeController@update');
-    Route::get('products_type/destroy/{id}', 'ProductTypeController@destroy');
+    Route::get('product_types', 'ProductTypeController@index');
+    Route::get('product_types/create', 'ProductTypeController@create');
+    Route::post('product_types/store', 'ProductTypeController@store');
+    Route::get('product_types/edit/{id}', 'ProductTypeController@edit');
+    Route::post('product_types/update/{id}', 'ProductTypeController@update');
+    Route::get('product_types/destroy/{id}', 'ProductTypeController@destroy');
 
     //聯絡表單管理
     Route::get('contacts', 'ContactController@index');
