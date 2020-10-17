@@ -30,6 +30,15 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     // Route::post('banners/update/{id}', 'BannerController@update');
     // Route::get('banners/destroy/{id}', 'BannerController@destroy');
 
+    //第一層產品類型管理
+    Route::get('productMainClasses', 'productMainClassController@index');
+    Route::get('productMainClasses/create', 'productMainClassController@create');
+    Route::post('productMainClasses/store', 'productMainClassController@store');
+    Route::get('productMainClasses/edit/{id}', 'productMainClassController@edit');
+    Route::post('productMainClasses/update/{id}', 'productMainClassController@update');
+    Route::get('productMainClasses/destroy/{id}', 'productMainClassController@destroy');
+
+
     //產品管理
     Route::get('products', 'ProductController@index');
     Route::get('products/create', 'ProductController@create');

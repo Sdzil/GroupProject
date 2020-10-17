@@ -7,6 +7,8 @@ npm run dev //執行mix
 php artisan make:controller ProductController --resource
 php artisan make:controller ProductTypeController --resource
 
+php artisan make:controller productMainClassContorller --resource
+
 //php artisan make:controller NewsController --resource
 php artisan make:controller ContactController --resource
 
@@ -16,6 +18,8 @@ php artisan make:model Product -m
 php artisan make:model ProductType -m
 //php artisan make:model News -m
 php artisan make:model Contact -m
+
+php artisan make:model productMainClass -m
 
 //對應的controller中記得引用class Done!!
 use App\News;  //之類的

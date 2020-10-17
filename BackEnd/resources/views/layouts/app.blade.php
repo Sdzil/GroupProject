@@ -34,8 +34,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/products">產品管理</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/product_types">產品類型管理</a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                產品類別管理<span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/admin/productMainClasses" >
+                                   第一層產品類別管理
+                                </a>
+                                <a class="dropdown-item" href="/admin/productClasses" >
+                                   第二層產品類別管理
+                                </a>
+                                <a class="dropdown-item" href="/admin/productTypes" >
+                                   第三層產品類別管理
+                                </a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/contact">聯絡表單管理</a>
