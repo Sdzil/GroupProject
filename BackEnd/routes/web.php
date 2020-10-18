@@ -38,6 +38,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::post('productMainClasses/update/{id}', 'productMainClassController@update');
     Route::get('productMainClasses/destroy/{id}', 'productMainClassController@destroy');
 
+    //第二層產品類型管理
+    Route::get('productClasses', 'productClassController@index');
+    Route::get('productClasses/create', 'productClassController@create');
+    Route::post('productClasses/store', 'productClassController@store');
+    Route::get('productClasses/edit/{id}', 'productClassController@edit');
+    Route::post('productClasses/update/{id}', 'productClassController@update');
+    Route::get('productClasses/destroy/{id}', 'productClassController@destroy');
+
 
     //產品管理
     Route::get('products', 'ProductController@index');

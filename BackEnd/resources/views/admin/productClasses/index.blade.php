@@ -10,31 +10,33 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">第一層類型管理 - ProductMainClass</div>
+                    <div class="card-header">第二層類別管理 - ProductClass</div>
 
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/productMainClasses/create">新增第一層類別</a>
+                        <a class="btn btn-success" href="/admin/productClasses/create">新增第二層類別</a>
                         <hr>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>第一層類別名稱(MainClass)</th>
+                                    <th>第一層類別名稱(MianClass)</th>
+                                    <th>第二層類別名稱(Class)</th>
                                     <th>排序(sort)</th>
                                     <th width="120">功能</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($productMainClasses as $productMainClass)
+                                @foreach ($productClasses as $productClass)
                                     <tr>
-                                        <td>{{ $productMainClass->mainClassName }}</td>
-                                        <td>{{ $productMainClass->sort }}</td>
+                                        <td>{{ $productClass->productMainClass->mainClassName }}</td>
+                                        <td>{{ $productClass->className }}</td>
+                                        <td>{{ $productClass->sort }}</td>
                                         <td>
                                             <a class="btn btn-success btn-sm"
-                                                href="/admin/productMainClasses/edit/{{ $productMainClass->id }}">編輯</a>
+                                                href="/admin/productClasses/edit/{{ $productClass->id }}">編輯</a>
                                             {{-- <a class="btn btn-danger btn-sm btn-delete" href="#"
                                                 data-itemid="{{ $productMainClass->id }}">刪除</a> --}}
-                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $productMainClass->id }}">刪除</button>
+                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $productClass->id }}">刪除</button>
 
                                         </td>
                                     </tr>
@@ -55,7 +57,7 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "order": [1, "desc"] //根據第一欄倒序排列
+                "order": [2, "desc"] //根據第一欄倒序排列
             });
         });
 
@@ -77,7 +79,7 @@
                         // 'Your file has been deleted.',
                         // 'success'
                         // )
-                        window.location.href = `/admin/productMainClasses/destroy/${item_id}`;
+                        window.location.href = `/admin/productClasses/destroy/${item_id}`;
 
                     }
                 })

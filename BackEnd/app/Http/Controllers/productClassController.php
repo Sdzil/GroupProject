@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductClass;
 use App\ProductMainClass;
 use Illuminate\Http\Request;
 
-class productMainClassController extends Controller
+class productClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class productMainClassController extends Controller
      */
     public function index()
     {
-        $productMainClasses = ProductMainClass::get();
-
-        return view('admin.productMainClasses.index', compact('productMainClasses'));
+        $productClasses = ProductClass::with('productMainClass')->get();
+        // dd($productClasses[0]->productMainClass->mainClassName);
+        return view('admin.productClasses.index', compact('productClasses'));
     }
 
     /**
@@ -26,7 +27,8 @@ class productMainClassController extends Controller
      */
     public function create()
     {
-        return view('admin.productMainClasses.create');
+        $edit_productMainClasses = ProductMainClass::get();
+        return view('admin.productClasses.create', compact('edit_productMainClasses'));
     }
 
     /**
@@ -37,9 +39,9 @@ class productMainClassController extends Controller
      */
     public function store(Request $request)
     {
-        ProductMainClass::create($request->all());
+        ProductClass::create($request->all());
 
-        return redirect('admin/productMainClasses');
+        return redirect('admin/productClasses');
     }
 
     /**
@@ -61,9 +63,11 @@ class productMainClassController extends Controller
      */
     public function edit($id)
     {
-        $edit_productMainClass = ProductMainClass::find($id);
- 
-        return view('admin.productMainClasses.edit', compact('edit_productMainClass'));
+        $edit_productClass = ProductClass::find($id);
+        $edit_productMainClasses = ProductMainClass::get();
+        // dd($edit_productMainClass);
+        return view('admin.productClasses.edit', compact('edit_productClass', 'edit_productMainClasses'));
+
     }
 
     /**
@@ -75,11 +79,11 @@ class productMainClassController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $productMainClass = ProductMainClass::find($id);
+        // dd($request);
+        $productClass = ProductClass::find($id);
+        $productClass->update($request->all());
 
-        $productMainClass->update($request->all());
-
-        return redirect('admin/productMainClasses');
+        return redirect('admin/productClasses');
     }
 
     /**
@@ -90,10 +94,9 @@ class productMainClassController extends Controller
      */
     public function destroy($id)
     {
-        $productMainClass = ProductMainClass::find($id);
+        $productClass = ProductClass::find($id);
+        $productClass->delete();
 
-        $productMainClass->delete();
-
-        return redirect('/admin/productMainClasses');
+        return redirect('/admin/productClasses');
     }
 }

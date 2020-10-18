@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductMainClassesTable extends Migration
+class CreateProductClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateProductMainClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_main_classes', function (Blueprint $table) {
+        Schema::create('product_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('mainClassName');
+            $table->string('className');
             $table->string('sort');
+            $table->unsignedBigInteger('product_main_class_id');
+            $table->foreign('product_main_class_id')->references('id')->on('product_main_classes');
 
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateProductMainClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_main_classes');
+        Schema::dropIfExists('product_classes');
     }
 }
