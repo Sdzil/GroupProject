@@ -15,6 +15,12 @@ class CreateProductTypesTable extends Migration
     {
         Schema::create('product_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->string('typeName');
+            $table->string('sort');
+            $table->unsignedBigInteger('product_class_id');
+            $table->foreign('product_class_id')->references('id')->on('product_classes');
+
             $table->timestamps();
         });
     }

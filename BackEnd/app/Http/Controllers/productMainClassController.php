@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\ProductMainClass;
 use Illuminate\Http\Request;
 
-class productMainClassController extends Controller
+class ProductMainClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -62,7 +62,7 @@ class productMainClassController extends Controller
     public function edit($id)
     {
         $edit_productMainClass = ProductMainClass::find($id);
- 
+
         return view('admin.productMainClasses.edit', compact('edit_productMainClass'));
     }
 

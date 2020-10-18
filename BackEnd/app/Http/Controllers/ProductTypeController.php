@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductClass;
+use App\ProductMainClass;
 use Illuminate\Http\Request;
 
 use App\ProductType;
@@ -16,8 +18,10 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
-        $news_list = DB::table('news')->get();
-        return view('.admin.news.index', compact('news_list'));
+        $productTypes = ProductType::with('productClass')->get();
+        // dd($productTypes[0]->productClass->productMainClass);
+        // dd($productClasses[0]->productMainClass->mainClassName);
+        return view('admin.productTypes.index', compact('productTypes'));
     }
 
     /**
@@ -27,7 +31,8 @@ class ProductTypeController extends Controller
      */
     public function create()
     {
-        //
+        $create_productClasses = ProductClass::get();
+        return view('admin.productTypes.create', compact('create_productClasses'));
     }
 
     /**
@@ -38,7 +43,9 @@ class ProductTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductType::create($request->all());
+
+        return redirect('admin/productTypes');
     }
 
     /**
@@ -60,7 +67,11 @@ class ProductTypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_productType = ProductType::find($id);
+        $edit_productClasses = ProductClass::get();
+        // dd($edit_productMainClass);
+        return view('admin.productClasses.edit', compact('edit_productType', 'edit_productClasses'));
+
     }
 
     /**
@@ -72,7 +83,10 @@ class ProductTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $productType = ProductType::find($id);
+        $productType->update($request->all());
+
+        return redirect('admin/productTypes');
     }
 
     /**
@@ -83,6 +97,9 @@ class ProductTypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productType = ProductType::find($id);
+        $productType->delete();
+
+        return redirect('/admin/productTypes');
     }
 }
