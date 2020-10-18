@@ -16,7 +16,7 @@ class ProductClassController extends Controller
     public function index()
     {
         $productClasses = ProductClass::with('productMainClass')->get();
-        // dd($productClasses[0]->productMainClass->mainClassName);
+        // dd($productClasses[0]);
         return view('admin.productClasses.index', compact('productClasses'));
     }
 

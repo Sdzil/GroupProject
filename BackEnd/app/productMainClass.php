@@ -11,7 +11,7 @@ class ProductMainClass extends Model
         'mainClassName', 'sort'
     ];
 
-    public function productType()
+    public function productClass()
     {
         return $this->hasMany('App\ProductClass');
     }
