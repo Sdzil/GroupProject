@@ -16,8 +16,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $news_list = DB::table('news')->get();
-        return view('.admin.news.index', compact('news_list'));
+        $contacts = Contact::get();
+        return view('admin.contacts.index', compact('contacts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.contacts.create');
     }
 
     /**
@@ -38,7 +38,9 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Contact::create($request->all());
+
+        return redirect('admin/contacts');
     }
 
     /**
@@ -60,7 +62,9 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_contact = Contact::find($id);
+
+        return view('admin.contacts.edit', compact('edit_contact'));
     }
 
     /**
@@ -72,7 +76,10 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->update($request->all());
+
+        return redirect('admin/contacts');
     }
 
     /**
@@ -83,6 +90,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->delete();
+
+        return redirect('/admin/contacts');
     }
 }

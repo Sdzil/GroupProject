@@ -31,9 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/products">產品管理</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 產品類別管理<span class="caret"></span>
@@ -51,8 +49,15 @@
                                 </a>
                             </div>
                         </li>
+
+                        
+
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/contact">聯絡表單管理</a>
+                            <a class="nav-link" href="/admin/products">產品管理</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/contacts">聯絡表單管理</a>
                         </li>
 
                     </ul>

@@ -12,41 +12,46 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/admin">後臺</a></li>
-            <li class="breadcrumb-item"><a href="/admin/news">產品管理</a></li>
-            <li class="breadcrumb-item active" aria-current="page">編輯產品</li>
+            <li class="breadcrumb-item"><a href="/admin/contacts">聯絡表單管理</a></li>
+            <li class="breadcrumb-item active" aria-current="page">編輯聯絡表單</li>
             </ol>
         </nav>
-    <form method="POST" action="/admin/news/update/{{$edit_news->id}}" enctype="multipart/form-data">
+
+        <form method="POST" action="/admin/contacts/update/{{ $edit_contact->id }}" enctype="multipart/form-data">
 
             @csrf
 
             <div class="form-group">
-                <label for="title">標題</label>
-                <input name="title" type="text" class="form-control" id="title" value="{{$edit_news->title}}" aria-describedby="emailHelp" required>
+                <label for="subject">主旨</label>
+                <input name="subject" type="text" class="form-control" id="subject" aria-describedby="emailHelp" value="{{$edit_contact->subject}}" required>
             </div>
 
             <div class="form-group">
-                <label for="sub_title">副標題</label>
-                <input name="sub_title" type="text" class="form-control" id="sub_title" value="{{$edit_news->sub_title}}" aria-describedby="emailHelp" required>
+                <label for="content">問題描述</label>
+                <input name="content" type="text" class="form-control" id="content" aria-describedby="emailHelp" value="{{$edit_contact->content}}" required>
             </div>
 
-                <div class="form-group">
-                目前圖片<br>
-                <img width="200" src="{{$edit_news->image_url}}" alt="">
-                <br>
-                <label for="image_url">上傳照片</label>
-                <input name="image_url" type="file" class="form-control-file" id="image_url" value="{{$edit_news->image_url}}">
+              <div class="form-group">
+                <label for="name">姓名</label>
+                <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" value="{{$edit_contact->name}}" required>
               </div>
-              {{-- <div class="form-group">
-                <label for="image_url">上傳照片</label>
-                <input name="image_url" type="file" class="form-control-file" id="image_url" value="{{$edit_news->image_url}}" required>
-              </div> --}}
 
               <div class="form-group">
-                <label for="content">內容</label>
-                <textarea name="content" class="form-control" id="content" rows="3" required>{{$edit_news->content}}</textarea>
+                <label for="phoneNumber">電話</label>
+                <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" value="{{$edit_contact->phoneNumber}}" required>
               </div>
-            <button type="submit" class="btn btn-primary">送出編輯</button>
+
+              <div class="form-group">
+                <label for="address">地址</label>
+                <input name="address" type="text" class="form-control" id="address" value="{{$edit_contact->address}}" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">電子信箱</label>
+                <input name="email" type="email" class="form-control" id="email" value="{{$edit_contact->email}}" required>
+              </div>
+
+            <button type="submit" class="btn btn-primary">送出</button>
         </form>
     </div>
 @endsection
