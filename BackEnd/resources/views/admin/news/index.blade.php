@@ -20,24 +20,33 @@
                             <thead>
                                 <tr>
                                     <th>標題(title)</th>
-                                    <th>排序(sort)</th>
+                                    <th>內文(content)</th>
+                                    <th>列表圖片(listImageUrl)</th>
+                                    <th>內文圖片(infoImageUrl)</th>
+                                    <th>日期(date))</th>
+                                    <th>權重(sort))</th>
                                     <th width="120">功能</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($news_list as $item)
+                                @foreach ($newsClass as $news)
                                     <tr>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->sort }}</td>
+                                        <td>{{ $news->title }}</td>
+                                        <td>{{ $news->content }}</td>
+                                        <td><img height="100" src="{{$news->listImageUrl}}" alt=""></td>
+                                        <td><img height="100" src="{{$news->infoImageUrl}}" alt=""></td>
+                                        <td>{{ $news->date }}</td>
+                                        <td>{{ $news->sort }}</td>
                                         <td>
-                                            <a class="btn btn-success btn-sm" href="/admin/news/edit/{{ $item->id }}">編輯</a>
-                                            <a class="btn btn-danger btn-sm" href="#" data-itemid="{{ $item->id }}">刪除</a>
-
+                                            <a class="btn btn-success btn-sm" href="/admin/news/edit/{{ $news->id }}">編輯</a>
+                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $news->id }}">刪除</button>
+                                            {{-- <a class="btn btn-danger btn-sm btn-del"  data-newsid="{{ $news->id }}">刪除</a> --}}
+{{--
                                             <form class="destroy-form" data-itemid="{{ $item->id }}"
                                                 action="/admin/news/destroy/{{ $item->id }}" method="POST"
                                                 style="display: none;">
                                                 @csrf
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -53,11 +62,40 @@
 @section('js')
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "order": [1, "desc"] //根據第一欄倒序排列
             });
+            $("#example").on("click", ".btn-delete", function() {
+                var item_id = this.dataset.itemid;
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire(
+                        // 'Deleted!',
+                        // 'Your file has been deleted.',
+                        // 'success'
+                        // )
+                        window.location.href = `/admin/news/destroy/${item_id}`;
+
+                    }
+                })
+
+
+
+            })
+
         });
 
     </script>

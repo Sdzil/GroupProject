@@ -22,13 +22,13 @@ Route::get('/admin', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->middleware(['auth'])->group(function(){
 
-    // //Banner管理
-    // Route::get('banners', 'BannerController@index');
-    // Route::get('banners/create', 'BannerController@create');
-    // Route::post('banners/store', 'BannerController@store');
-    // Route::get('banners/edit/{id}', 'BannerController@edit');
-    // Route::post('banners/update/{id}', 'BannerController@update');
-    // Route::get('banners/destroy/{id}', 'BannerController@destroy');
+    //Banner管理
+    Route::get('banners', 'BannerController@index');
+    Route::get('banners/create', 'BannerController@create');
+    Route::post('banners/store', 'BannerController@store');
+    Route::get('banners/edit/{id}', 'BannerController@edit');
+    Route::post('banners/update/{id}', 'BannerController@update');
+    Route::get('banners/destroy/{id}', 'BannerController@destroy');
 
     //第一層產品類型管理
     Route::get('productMainClasses', 'productMainClassController@index');
@@ -69,5 +69,19 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::get('contacts/edit/{id}', 'ContactController@edit');
     Route::post('contacts/update/{id}', 'ContactController@update');
     Route::get('contacts/destroy/{id}', 'ContactController@destroy');
+
+    //消息表單管理
+
+    Route::get('news', 'NewsController@index');
+    Route::get('news/create', 'NewsController@create');
+    Route::post('news/store', 'NewsController@store');
+    Route::get('news/edit/{id}', 'NewsController@edit');
+    Route::post('news/update/{id}', 'NewsController@update');
+    Route::get('news/destroy/{id}', 'NewsController@destroy');
+
+    //summernote
+    Route::post('/ajax_upload_img','AdminController@ajax_upload_img');
+    Route::post('/ajax_delete_img','AdminController@ajax_delete_img');
+
 
 });

@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $productTypes = ProductType::get();
+        $productTypes = ProductType::orderBy('sort', 'desc')->get();
 
         return view('admin.products.create', compact('productTypes'));
     }

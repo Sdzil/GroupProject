@@ -8,7 +8,7 @@ class Product extends Model
 {
 
     protected $fillable = [
-        'productName', 'price', 'content', 'sort', 'visible', 'product_type_id'
+        'productName', 'price', 'content', 'sort', 'stockType', 'visible', 'product_type_id'
     ];
 
     public function productType()
@@ -37,3 +37,6 @@ class Product extends Model
     // }
 
 }
+
+
+// {'s':'3','l':'5', 'xl':'1', '500ml':'2'}

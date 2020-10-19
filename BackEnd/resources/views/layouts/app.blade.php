@@ -32,6 +32,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/news">最新消息管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/banners">布告欄管理</a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 產品類別管理<span class="caret"></span>
@@ -50,7 +57,7 @@
                             </div>
                         </li>
 
-                        
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/products">產品管理</a>

@@ -10,34 +10,39 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">最新消息管理 - Index</div>
+                    <div class="card-header">布告欄管理 - Index</div>
 
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/news/create">新增最新消息</a>
+                        <a class="btn btn-success" href="/admin/banners/create">新增最新消息</a>
                         <hr>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>標題(title)</th>
-                                    <th>排序(sort)</th>
+                                    <th>圖片(imageUrl)</th>
+                                    <th>描述(description)</th>
+                                    <th>連結(link)</th>
+                                    <th>權重(sort))</th>
                                     <th width="120">功能</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($news_list as $item)
+                                @foreach ($Bannerclass as $banners)
                                     <tr>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->sort }}</td>
+                                        <td><img height="100" src="{{$banners->imageUrl}}" alt=""></td>
+                                        <td>{{ $banners->description }}</td>
+                                        <td>{{ $banners->link }}</td>
+                                        <td>{{ $banners->sort }}</td>
                                         <td>
-                                            <a class="btn btn-success btn-sm" href="/admin/news/edit/{{ $item->id }}">編輯</a>
-                                            <a class="btn btn-danger btn-sm" href="#" data-itemid="{{ $item->id }}">刪除</a>
-
+                                            <a class="btn btn-success btn-sm" href="/admin/banners/edit/{{ $banners->id }}">編輯</a>
+                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $banners->id }}">刪除</button>
+                                            {{-- <a class="btn btn-danger btn-sm btn-del"  data-newsid="{{ $news->id }}">刪除</a> --}}
+{{--
                                             <form class="destroy-form" data-itemid="{{ $item->id }}"
                                                 action="/admin/news/destroy/{{ $item->id }}" method="POST"
                                                 style="display: none;">
                                                 @csrf
-                                            </form>
+                                            </form> --}}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -53,11 +58,40 @@
 @section('js')
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "order": [1, "desc"] //根據第一欄倒序排列
             });
+            $("#example").on("click", ".btn-delete", function() {
+                var item_id = this.dataset.itemid;
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire(
+                        // 'Deleted!',
+                        // 'Your file has been deleted.',
+                        // 'success'
+                        // )
+                        window.location.href = `/admin/banners/destroy/${item_id}`;
+
+                    }
+                })
+
+
+
+            })
+
         });
 
     </script>
