@@ -17,7 +17,7 @@ class CreateProductMainImgsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('imageUrl');
-            $table->string('sort');
+            $table->unsignedInteger('sort');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
 

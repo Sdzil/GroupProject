@@ -17,7 +17,7 @@ class CreateProductTypesTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('typeName');
-            $table->string('sort');
+            $table->unsignedInteger('sort');
             $table->unsignedBigInteger('product_class_id');
             $table->foreign('product_class_id')->references('id')->on('product_classes');
 

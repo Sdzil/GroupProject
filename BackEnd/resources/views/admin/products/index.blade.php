@@ -31,35 +31,51 @@
                                     <th width="120">功能</th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                @foreach ($products as $product)
+                                @for ($i = 0; $i < sizeof($products); $i++)
+
+
+                                {{-- @foreach ($products,$arr as $product, $arr) --}}
                                     <tr>
-                                        <td>{{ $product->productName }}</td>
-                                        <td>{{ $product->price }}</td>
-                                        <td>{{ $product->content }}</td>
-                                        <td>{{ $product->sort }}</td>
+                                        <td>{{ $products[$i]->productName }}</td>
+                                        <td>{{ $products[$i]->price }}</td>
+                                        <td>{{ $products[$i]->content }}</td>
+                                        <td>{{ $products[$i]->sort }}</td>
                                         <td class="d-flex">
-                                            @foreach  ($product->productMainImg as $MainImg)
-                                            <img class="m-1" height="75" src="{{ $MainImg->imageUrl }}" alt="">
+                                            @foreach ($products[$i]->productMainImg as $MainImg)
+                                                <img class="m-1" height="75" src="{{ $MainImg->imageUrl }}" alt="">
                                             @endforeach
-                                            </td>
+                                        </td>
                                         <td>
 
-                                            {{ $product->productType->typeName }}
+                                            {{ $products[$i]->productType->typeName }}
 
-                                            </td>
+                                        </td>
                                         <td>
-                                            <select name="stock" id="">
-                                                <option value="{{ $product->visible }}"> {{ $product->productName}}:{{$product->visible }}</option>
+
+                                            <select name="stock" id="productInfo">
+                                                @foreach ($arrss as $arrs)
+                                                    @foreach ($arrs as $arr)
+                                                    <option value="" disabled> {{ key($arr) }} : {{ $arr->key($arr) }}
+                                                    </option>
+                                                    @endforeach
+
+                                                @endforeach
+
                                             </select>
-                                           </td>
-                                        <td>{{ $product->visible }}</td>
+                                        </td>
+                                        <td>{{ $products[$i]->visible }}</td>
                                         <td>
-                                            <a class="btn btn-success btn-sm" href="/admin/products/edit/{{ $product->id }}">編輯</a>
-                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $product->id }}">刪除</button>
+                                            <a class="btn btn-success btn-sm"
+                                                href='/admin/products/edit/{{ $products[$i]->id }}'>編輯</a>
+                                            <button class="btn btn-sm btn-danger btn-delete"
+                                                data-itemid="{{ $products[$i]->id }}">刪除</button>
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @endfor
+                                {{-- @endforeach --}}
+
                             </tbody>
                         </table>
                     </div>
@@ -73,6 +89,8 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
@@ -81,31 +99,30 @@
         });
 
         $("#example").on("click", ".btn-delete", function() {
-                var item_id = this.dataset.itemid;
+            var item_id = this.dataset.itemid;
 
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Swal.fire(
-                        // 'Deleted!',
-                        // 'Your file has been deleted.',
-                        // 'success'
-                        // )
-                        window.location.href = `/admin/productClasses/destroy/${item_id}`;
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Swal.fire(
+                    // 'Deleted!',
+                    // 'Your file has been deleted.',
+                    // 'success'
+                    // )
+                    window.location.href = `/admin/productClasses/destroy/${item_id}`;
 
-                    }
-                })
-
-
-
+                }
             })
+        })
+
+
 
     </script>
 @endsection

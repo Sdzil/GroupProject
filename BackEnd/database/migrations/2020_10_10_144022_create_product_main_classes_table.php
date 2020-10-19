@@ -17,7 +17,7 @@ class CreateProductMainClassesTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('mainClassName');
-            $table->string('sort');
+            $table->unsignedInteger('sort');
 
             $table->timestamps();
         });
