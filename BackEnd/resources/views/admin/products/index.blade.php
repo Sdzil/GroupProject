@@ -14,6 +14,14 @@
 
                     <div class="card-body">
                         <a class="btn btn-success" href="/admin/products/create">新增產品</a>
+
+                        <select name="productType" id="productType">
+                            <option id="productType_0" value="">全部商品</option>
+                            @foreach ($productTypes as $productType)
+                                <option id="productType_{{ $productType->id }}" value="{{ $productType->typeName }}">
+                                    {{ $productType->typeName }}</option>
+                            @endforeach
+                        </select>
                         <hr>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -52,14 +60,16 @@
                                             {{ $products[$i]->productType->typeName }}
 
                                         </td>
+
                                         <td>
 
                                             <select name="stock" id="productInfo">
-                                                @foreach ($arrss as $arrs)
-                                                    @foreach ($arrs as $arr)
-                                                    <option value="" disabled> {{ key($arr) }} : {{ $arr->key($arr) }}
+
+
+                                                @foreach ($arrs[$i] as $arr)
+
+                                                    <option value="" disabled> {{$arr->type}} : {{ $arr->amount }}
                                                     </option>
-                                                    @endforeach
 
                                                 @endforeach
 
@@ -93,9 +103,13 @@
 
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
-                "order": [1, "desc"] //根據第一欄倒序排列
+            var table = $('#example').DataTable({
+                "order": [[3, "desc"], [1, "desc"]] //根據第三欄及第一欄倒序排列
             });
+            //利用第三層產品類別做搜尋
+            $('#productType').on('change', function() {
+                    table.columns(5).search($(this).val()).draw();
+                 });
         });
 
         $("#example").on("click", ".btn-delete", function() {

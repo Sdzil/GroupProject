@@ -77,6 +77,18 @@
                 <label for="qty">數量</label>
                 <input name="qty" type="text" class="form-control" id="qty" aria-describedby="emailHelp" required>
                 --}}
+
+                <select>
+                    <option value="5L">5L</option>
+                    <option value="4L">4L</option>
+                    <option value="3L">3L</option>
+                    <option value="2L">2L</option>
+                    <option value="XL">XL</option>
+                    <option value="L">L</option>
+                    <option value="M">M</option>
+                    <option value="S">S</option>
+                    <option value="XS">XS</option>
+                </select>
             </div>
 
             <hr>
@@ -143,7 +155,7 @@
         });
 
         //刪除規格
-        $('#spec_btn_delete').click(function() {
+        $('#imgs_btn_delete').click(function() {
 
             $("#imgs label:last").remove();
             $("#imgs input:last").remove();

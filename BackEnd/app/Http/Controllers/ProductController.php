@@ -22,14 +22,16 @@ class ProductController extends Controller
         //這樣抓確實會把關聯項目一起抓出來
         $products = Product::with('productType')->with('productMainImg')->get();
         $length = sizeof($products->all());
-        // dd($products->all()[0]->productInfo);
+        // dd(json_decode($products->all()[0]->productinfo));
         for ($i=0; $i < $length; $i++) {
-           $arrss[$i] = json_decode($products->all()[$i]->productInfo);
+           $arrs[$i] = json_decode($products->all()[$i]->productInfo);
         }
+        $productTypes = ProductType::orderBy('sort', 'desc')->get();
+        // dd($arrs);
         // $key = key($arr[3][0]);
         // dd(key($arr[3][0]), $arr[3][0]->$key);
         // dd((sizeof($products->all())));
-        return view('admin.products.index', compact('products','arrss'));
+        return view('admin.products.index', compact('products','arrs', 'productTypes'));
     }
 
     /**
@@ -66,13 +68,14 @@ class ProductController extends Controller
             if($request->has('stockType_'.$i)){
             $stocktype = $request->get("stockType_".$i);
             $amount = $request->get("qty_".$i);
-            $a[$i] = (object)[$stocktype => $amount];
+            $a[$i] = ["type" => $stocktype,"amount" => $amount];
             }else{
                 break;
             }
         }
 
         $info = json_encode($a);
+        // dd($a,$info);
         // $requestData = $request->hasFile("mainImageurl_".$id);
         // $requestData = $request->file();
 
@@ -171,7 +174,17 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::with('productType')->with('productMainImg')->find($id);
+
+        // dd(json_decode($products->all()[0]->productinfo));
+
+        // dd($product->productMainImg);
+           $arrs= json_decode($product->productInfo);
+
+
+        $productTypes = ProductType::orderBy('sort', 'desc')->get();
+
+        return view('admin.products.edit', compact('product','arrs', 'productTypes'));
     }
 
     /**
@@ -183,7 +196,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all(), $id);
+        $product = Product::find($id);
+        $product->update($request->all());
+
+        return redirect('admin/products');
+
     }
 
     /**
@@ -194,7 +212,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productClass = Product::find($id);
+        $productClass->delete();
     }
 
     private function fileUpload($file,$dir){

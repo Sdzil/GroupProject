@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('productName');
             $table->unsignedInteger('price');
             $table->string('content')->nullable();
+            $table->string('productinfo')->nullable();
             $table->unsignedInteger('sort')->nullable()->default('0');
             $table->boolean('visible')->default('1');
             $table->unsignedBigInteger('product_type_id');
