@@ -18,6 +18,7 @@ class CreateProductClassesTable extends Migration
 
             $table->string('className');
             $table->unsignedInteger('sort');
+            $table->boolean('spec');
             $table->unsignedBigInteger('product_main_class_id');
             $table->foreign('product_main_class_id')->references('id')->on('product_main_classes');
 

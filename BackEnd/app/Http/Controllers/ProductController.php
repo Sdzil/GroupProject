@@ -58,23 +58,23 @@ class ProductController extends Controller
         //資料內含要存去
         // $requestData = $request->all();
 
-        $id = 0;
+        // $id = 0;
         // $all = $request->has('stockType_'.$id);
         $all = $request->all();
-        $temp = "stockType_".$id;
+        // $temp = "stockType_".$id;
 
 
-        for ($i=0;  ; $i++) {
-            if($request->has('stockType_'.$i)){
-            $stocktype = $request->get("stockType_".$i);
-            $amount = $request->get("qty_".$i);
-            $a[$i] = ["type" => $stocktype,"amount" => $amount];
-            }else{
-                break;
-            }
-        }
+        // for ($i=0;  ; $i++) {
+        //     if($request->has('stockType_'.$i)){
+        //     $stocktype = $request->get("stockType_".$i);
+        //     $amount = $request->get("qty_".$i);
+        //     $a[$i] = ["type" => $stocktype,"amount" => $amount];
+        //     }else{
+        //         break;
+        //     }
+        // }
 
-        $info = json_encode($a);
+        // $info = json_encode($a);
         // dd($a,$info);
         // $requestData = $request->hasFile("mainImageurl_".$id);
         // $requestData = $request->file();
@@ -87,7 +87,7 @@ class ProductController extends Controller
         $productId =  Product::create($all)->id;
 
         $productTemp = Product::find($productId);
-        $productTemp->productInfo =$info;
+        // $productTemp->productInfo =$info;
         $productTemp->save();
 
         for ($i=0;  ; $i++) {

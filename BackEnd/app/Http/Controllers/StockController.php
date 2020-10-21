@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\ProductClass;
+use App\Stock;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -13,7 +16,10 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+        $stocks = Stock::with('product')->get();
+        $productClasses = ProductClass::get();
+
+        return view('admin.stocks.index', compact('stocks', 'productClasses'));
     }
 
     /**
@@ -23,7 +29,8 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $create_products = Product::get();
+        return view('admin.stocks.create', compact('create_products'));
     }
 
     /**
@@ -34,7 +41,9 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Stock::create($request->all());
+
+        return redirect('admin/stocks');
     }
 
     /**
@@ -56,7 +65,9 @@ class StockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_stock = Stock::find($id);
+        $edit_products = Product::get();
+        return view('admin.stocks.edit', compact('edit_stock', 'edit_products'));
     }
 
     /**

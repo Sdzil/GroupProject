@@ -66,12 +66,12 @@
                                             <select name="stock" id="productInfo">
 
 
-                                                @foreach ($arrs[$i] as $arr)
+                                                {{-- @foreach ($arrs[$i] as $arr)
 
                                                     <option value="" disabled> {{$arr->type}} : {{ $arr->amount }}
                                                     </option>
 
-                                                @endforeach
+                                                @endforeach --}}
 
                                             </select>
                                         </td>

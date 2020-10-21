@@ -64,6 +64,10 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/stocks">庫存管理</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/admin/contacts">聯絡表單管理</a>
                         </li>
 

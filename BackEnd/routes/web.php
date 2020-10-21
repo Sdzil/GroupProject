@@ -62,6 +62,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::post('products/update/{id}', 'ProductController@update');
     Route::get('products/destroy/{id}', 'ProductController@destroy');
 
+    //庫存管理
+    Route::get('stocks', 'StockController@index');
+    Route::get('stocks/create', 'StockController@create');
+    Route::post('stocks/store', 'StockController@store');
+    Route::get('stocks/edit/{id}', 'StockController@edit');
+    Route::post('stocks/update/{id}', 'StockController@update');
+    Route::get('stocks/destroy/{id}', 'StockController@destroy');
+
     //聯絡表單管理
     Route::get('contacts', 'ContactController@index');
     Route::get('contacts/create', 'ContactController@create');
