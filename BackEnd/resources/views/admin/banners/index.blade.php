@@ -10,10 +10,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">布告欄管理 - Index</div>
+                    <div class="card-header">首頁橫幅管理 - Banner</div>
 
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/banners/create">新增最新消息</a>
+                        <a class="btn btn-success" href="/admin/banners/create">新增首頁橫幅</a>
                         <hr>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -27,22 +27,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($Bannerclass as $banners)
+                                @foreach ($banners as $banner)
                                     <tr>
-                                        <td><img height="100" src="{{$banners->imageUrl}}" alt=""></td>
-                                        <td>{{ $banners->description }}</td>
-                                        <td>{{ $banners->link }}</td>
-                                        <td>{{ $banners->sort }}</td>
+                                        <td><img height="100" src="{{$banner->imageUrl}}" alt=""></td>
+                                        <td>{{ $banner->description }}</td>
+                                        <td>{{ $banner->link }}</td>
+                                        <td>{{ $banner->sort }}</td>
                                         <td>
-                                            <a class="btn btn-success btn-sm" href="/admin/banners/edit/{{ $banners->id }}">編輯</a>
-                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $banners->id }}">刪除</button>
-                                            {{-- <a class="btn btn-danger btn-sm btn-del"  data-newsid="{{ $news->id }}">刪除</a> --}}
-{{--
-                                            <form class="destroy-form" data-itemid="{{ $item->id }}"
-                                                action="/admin/news/destroy/{{ $item->id }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form> --}}
+                                            <a class="btn btn-success btn-sm" href="/admin/banners/edit/{{ $banner->id }}">編輯</a>
+                                            <button class="btn btn-sm btn-danger btn-delete" data-bannerid="{{ $banner->id }}">刪除</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,12 +56,16 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "order": [1, "desc"] //根據第一欄倒序排列
+
+                "order": [3, "desc"] //根據第三欄倒序排列
+
             });
+
             $("#example").on("click", ".btn-delete", function() {
-                var item_id = this.dataset.itemid;
+                var bannerid = this.dataset.bannerid;
 
                 Swal.fire({
+
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
                     icon: 'warning',
@@ -76,23 +73,15 @@
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
+
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Swal.fire(
-                        // 'Deleted!',
-                        // 'Your file has been deleted.',
-                        // 'success'
-                        // )
-                        window.location.href = `/admin/banners/destroy/${item_id}`;
+
+                        window.location.href = `/admin/banners/destroy/${bannerid}`;
 
                     }
                 })
-
-
-
             })
-
         });
-
     </script>
 @endsection

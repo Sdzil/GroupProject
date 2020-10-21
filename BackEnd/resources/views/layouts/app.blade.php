@@ -33,10 +33,11 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/news">最新消息管理</a>
+                            <a class="nav-link" href="/admin/banners">首頁橫幅管理</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/banners">布告欄管理</a>
+                            <a class="nav-link" href="/admin/news">最新消息管理</a>
                         </li>
 
                         <li class="nav-item dropdown">

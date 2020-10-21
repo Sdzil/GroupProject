@@ -23,6 +23,10 @@ class CreateContactsTable extends Migration
             $table->string('subject');
             $table->string('content');
 
+            //
+            $table->string('status')->nullable()->default('未處理');
+            $table->mediumText('reply')->nullable();
+
             $table->timestamps();
         });
     }

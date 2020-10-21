@@ -75,6 +75,9 @@ class ProductMainClassController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // dd($request);
+
         $productMainClass = ProductMainClass::find($id);
 
         $productMainClass->update($request->all());
@@ -90,9 +93,8 @@ class ProductMainClassController extends Controller
      */
     public function destroy($id)
     {
-        $productMainClass = ProductMainClass::find($id);
 
-        $productMainClass->delete();
+        ProductMainClass::destroy($id);
 
         return redirect('/admin/productMainClasses');
     }

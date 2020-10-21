@@ -16,9 +16,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $Bannerclass = Banner::get();
+        $banners = Banner::get();
 
-        return view('admin.banners.index', compact('Bannerclass'));
+        return view('admin.banners.index', compact('banners'));
     }
 
     /**
@@ -44,7 +44,7 @@ class BannerController extends Controller
 
         if($request->hasFile('imageUrl')) {
             $file = $request->file('imageUrl');
-            $path = $this->fileUpload($file,'banner');
+            $path = $this->fileUpload($file,'banners');
             $requestData['imageUrl'] = $path;
         }
         Banner::create($requestData);
@@ -71,9 +71,9 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $editBanner= Banner::find($id);
+        $edit_banner= Banner::find($id);
 
-        return view('admin.banners.edit', compact('editBanner'));
+        return view('admin.banners.edit', compact('edit_banner'));
     }
 
     /**
@@ -85,19 +85,21 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Banner::find($id);
+        $banner = Banner::find($id);
 
         $requestData = $request->all();
         if($request->hasFile('imageUrl')) {
-            $old_image = $item->imageUrl;
-            $file = $request->file('imageUrl');
-            $path = $this->fileUpload($file,'news');
-            $requestData['imageUrl'] = $path;
-            File::delete(public_path().$old_image);
+            //如果有上傳新圖
+
+            $old_image = $banner->imageUrl;//取得舊圖片路徑
+            $file = $request->file('imageUrl');//取得舊圖片檔案
+            $path = $this->fileUpload($file,'banners');//取得新圖片預計要放的路徑，函式內把圖放到該路徑
+            $requestData['imageUrl'] = $path;//將路徑放進物件中
+            File::delete(public_path().$old_image);//刪除舊有圖片
 
         }
 
-    $item->update($requestData);
+    $banner->update($requestData);//更新資料內容
 
     return redirect('/admin/banners');
     }
@@ -110,12 +112,15 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $item = Banner::find($id);
-        $old_image = $item->imageUrl;
+        $banner = Banner::find($id);
+        $old_image = $banner->imageUrl;//取得圖片路徑，看有沒有圖
         if(file_exists(public_path().$old_image)){
+            //有圖就刪掉
             File::delete(public_path().$old_image);
         }
-        $item->delete();
+
+        //刪掉資料庫內的檔案
+        $banner->delete();
 
         return redirect('/admin/banners');
     }

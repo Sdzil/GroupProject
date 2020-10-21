@@ -15,12 +15,14 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('title');
-            $table->string('content');
+            $table->mediumText('content')->nullable();
             $table->string('listImageUrl')->default('0');
             $table->string('infoImageUrl')->nullable();
             $table->string('date');
-            $table->unsignedInteger('sort');
+            $table->unsignedInteger('sort')->default(0);
+
             $table->timestamps();
         });
     }

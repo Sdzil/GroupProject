@@ -22,6 +22,8 @@ class CreateProductClassesTable extends Migration
             $table->unsignedBigInteger('product_main_class_id');
             $table->foreign('product_main_class_id')->references('id')->on('product_main_classes');
 
+            // $table->foreign('product_main_class_id')->references('id')->on('product_main_classes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

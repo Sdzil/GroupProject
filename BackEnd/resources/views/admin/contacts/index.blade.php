@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <style>
-
+       
     </style>
 @endsection
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -19,7 +19,7 @@
             </ol>
         </nav>
 
-        <a href="/admin/contacts/create" class="btn btn-success sm-3 mb-3">新增聯絡表單</a>
+        {{-- <a href="/admin/contacts/create" class="btn btn-success sm-3 mb-3">新增聯絡表單</a> --}}
 
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -30,6 +30,7 @@
                     <th>電話號碼</th>
                     <th>地址</th>
                     <th>信箱</th>
+                    <th>狀態</th>
                     <th width="100">功能</th>
                 </tr>
             </thead>
@@ -42,6 +43,7 @@
                         <td>{{ $contact->phoneNumber }}</td>
                         <td>{{ $contact->address }}</td>
                         <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->status }}</td>
 
                         <td>
                             <a href="contacts/edit/{{ $contact->id }}" class="btn btn-sm btn-primary">編輯</a>
@@ -62,6 +64,7 @@
                     <th>電話號碼</th>
                     <th>地址</th>
                     <th>信箱</th>
+                    <th>狀態</th>
                     <th>功能</th>
                 </tr>
             </tfoot>

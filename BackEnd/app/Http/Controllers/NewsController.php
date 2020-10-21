@@ -15,9 +15,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $newsClass = News::get();
+        $newsList = News::get();
 
-        return view('admin.news.index', compact('newsClass'));
+        return view('admin.news.index', compact('newsList'));
     }
 
     /**
@@ -77,9 +77,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $editNews= News::find($id);
+        $edit_news= News::find($id);
 
-        return view('admin.news.edit', compact('editNews'));
+        return view('admin.news.edit', compact('edit_news'));
     }
 
     /**

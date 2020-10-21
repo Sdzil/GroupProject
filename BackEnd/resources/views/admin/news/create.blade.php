@@ -24,29 +24,29 @@
             @csrf
 
             <div class="form-group">
-                <label for="title">標題</label>
+                <label for="title">標題*<small class="text-danger"> (必填)</small></label>
                 <input name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp" required>
             </div>
 
             <div class="form-group">
-                <label for="content">內文</label>
-                <textarea name="content" class="form-control" id="content" rows="3" required></textarea>
+                <label for="content">內文<small class="text-danger"> (選填)</small></label>
+                <textarea name="content" class="form-control" id="content" rows="3"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="listImageUrl">列表圖片</label>
+                <label for="listImageUrl">列表圖片<small class="text-danger"> (選填) 建議大小400*200px 預設圖片為形象Logo</small></label>
                 <input name="listImageUrl" type="file" class="form-control-file" id="listImageUrl">
             </div>
 
             <div class="form-group">
-                <label for="infoImageUrl">內文圖片</label>
+                <label for="infoImageUrl">內文圖片<small class="text-danger"> (選填) 建議大小960*640px</small></label>
                 <input name="infoImageUrl" type="file" class="form-control-file" id="infoImageUrl">
             </div>
 
 
             <div class="form-group">
-                <label for="date">發布日期</label>
-                <textarea name="date" class="form-control" id="date" rows="3" required></textarea>
+                <label for="date">發布日期<small class="text-danger"> (必填)</small></label>
+                <input name="date" type="date" class="form-control" id="date" required>
             </div>
             <div class="form-group">
                 <label for="sort">權重<small class="text-danger">預設值為"0"</small></label>
@@ -69,76 +69,17 @@
         $(document).ready(function() {
             $('#content').summernote({
                 toolbar: [
-                    // [groupName, [list of button]]
                     ['style', ['bold', 'italic', 'underline', 'clear']],
                     ['font', ['strikethrough', 'superscript', 'subscript']],
                     ['fontsize', ['fontsize']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
+                    ['height', ['height']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
                 ],
                 height: 150,
                 lang: 'zh-TW',
-                callbacks: {
-                    onImageUpload: function(files) {
-                        for (let i = 0; i < files.length; i++) {
-                            $.upload(files[i]);
-                        }
-                    },
-                    onMediaDelete: function(target) {
-                        $.delete(target[0].getAttribute("src"));
-                    }
-                },
             });
-
-
-            $.upload = function(file) {
-                let out = new FormData();
-                out.append('file', file, file.name);
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                $.ajax({
-                    method: 'POST',
-                    url: '/admin/ajax_upload_img',
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    data: out,
-                    success: function(img) {
-                        $('#description').summernote('insertImage', img);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error(textStatus + " " + errorThrown);
-                    }
-                });
-            };
-
-            $.delete = function(file_link) {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                $.ajax({
-                    method: 'POST',
-                    url: '/admin/ajax_delete_img',
-                    data: {
-                        file_link: file_link
-                    },
-                    success: function(img) {
-                        console.log("delete:", img);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error(textStatus + " " + errorThrown);
-                    }
-                });
-            }
         });
 
     </script>

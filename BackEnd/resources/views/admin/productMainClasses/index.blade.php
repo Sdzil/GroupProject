@@ -32,9 +32,7 @@
                                         <td>
                                             <a class="btn btn-success btn-sm"
                                                 href="/admin/productMainClasses/edit/{{ $productMainClass->id }}">編輯</a>
-                                            {{-- <a class="btn btn-danger btn-sm btn-delete" href="#"
-                                                data-itemid="{{ $productMainClass->id }}">刪除</a> --}}
-                                            <button class="btn btn-sm btn-danger btn-delete" data-itemid="{{ $productMainClass->id }}">刪除</button>
+                                            <button class="btn btn-sm btn-danger btn-delete" data-pmcid="{{ $productMainClass->id }}">刪除</button>
 
                                         </td>
                                     </tr>
@@ -60,7 +58,7 @@
         });
 
         $("#example").on("click", ".btn-delete", function() {
-                var item_id = this.dataset.itemid;
+                var item_id = this.dataset.pmcid;
 
                 Swal.fire({
                     title: 'Are you sure?',
@@ -72,11 +70,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Swal.fire(
-                        // 'Deleted!',
-                        // 'Your file has been deleted.',
-                        // 'success'
-                        // )
+                        
                         window.location.href = `/admin/productMainClasses/destroy/${item_id}`;
 
                     }

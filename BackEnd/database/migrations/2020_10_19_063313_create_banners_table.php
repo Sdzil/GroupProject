@@ -15,12 +15,13 @@ class CreateBannersTable extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('imageUrl');
-            $table->string('description');
-            $table->string('target')->default('_blank');
 
-            $table->string('link')->nullable();
-            $table->unsignedInteger('sort');
+            $table->string('imageUrl');//圖片路徑
+            $table->string('description')->nullable();//描述，讓業主自己記得這張圖的用途
+            $table->string('link')->nullable();//圖片是否有要連結到額外的連結
+            $table->string('target')->default('_blank');//對於連結的開啟方式
+            $table->unsignedInteger('sort');//排序
+
             $table->timestamps();
         });
     }

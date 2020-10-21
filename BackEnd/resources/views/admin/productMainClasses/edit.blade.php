@@ -22,7 +22,7 @@
             @csrf
 
             <div class="form-group">
-                <label for="mainClassName">類別名稱</label>
+                <label for="mainClassName">第一層產品類別名稱</label>
                 <input name="mainClassName" type="text" class="form-control" id="mainClassName"
                     value="{{ $edit_productMainClass->mainClassName }}" aria-describedby="emailHelp" required>
             </div>
