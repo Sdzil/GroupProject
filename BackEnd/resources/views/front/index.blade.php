@@ -6,6 +6,19 @@
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<style>
+
+
+    .swiper-button-next{
+        color: white;
+        background-color: #444;
+    }
+    .swiper-button-prev{
+        color:white;
+        background-color: #444;
+    }
+</style>
 @endsection
 
 
