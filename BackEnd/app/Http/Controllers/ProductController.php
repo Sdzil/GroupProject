@@ -21,17 +21,20 @@ class ProductController extends Controller
     {
         //這樣抓確實會把關聯項目一起抓出來
         $products = Product::with('productType')->with('productMainImg')->get();
-        $length = sizeof($products->all());
+        // dd($products);
+        // $length = sizeof($products->all());
+        // dd($length);
         // dd(json_decode($products->all()[0]->productinfo));
-        for ($i=0; $i < $length; $i++) {
-           $arrs[$i] = json_decode($products->all()[$i]->productInfo);
-        }
+        // for ($i=0; $i < $length; $i++) {
+        // //    $arrs[$i] = json_decode($products->all()[$i]->productInfo);
+        //    $arrs[$i] = $i;
+        // }
         $productTypes = ProductType::orderBy('sort', 'desc')->get();
         // dd($arrs);
         // $key = key($arr[3][0]);
         // dd(key($arr[3][0]), $arr[3][0]->$key);
         // dd((sizeof($products->all())));
-        return view('admin.products.index', compact('products','arrs', 'productTypes'));
+        return view('admin.products.index', compact('products', 'productTypes'));
     }
 
     /**

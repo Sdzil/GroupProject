@@ -61,6 +61,11 @@
 
         </div>
         <br>
+        {{-- 使用php設定變數 --}}
+        <?php
+            $ary=["未處理", "已讀", "已讀不回", "已讀不想回", "不想處理", "已處理"];
+
+        ?>
 
         <hr>
         <form method="POST" action="/admin/contacts/update/{{ $edit_contact->id }}">
@@ -71,12 +76,11 @@
                 <div class="form-group col-3">
                     <label for="status">狀態</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="未處理">未處理</option>
-                        <option value="已讀">已讀</option>
-                        <option value="已讀不回">已讀不回</option>
-                        <option value="已讀不想回">已讀不想回</option>
-                        <option value="不想讀">不想讀</option>
-                        <option value="已處理">已處理</option>
+                        @foreach ($ary as $item)
+                            {{-- 再將上面設定的php變數來這邊做比對 --}}
+                            <option value="{{$item}}"  @if ($item == $edit_contact->status) selected @endif>{{$item}}</option>
+
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -84,7 +88,7 @@
             <div class="form-group">
                 <label for="reply">問題回覆</label>
                 <textarea name="reply" type="text" class="form-control" id="reply" rows="4"
-                    placeholder="請針對問題回覆"></textarea>
+                    placeholder="請針對問題回覆">{{ $edit_contact->reply }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">送出</button>
         </form>
