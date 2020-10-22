@@ -35,7 +35,7 @@
                                         <td>{{ $news->content }}</td>
                                         <td>
                                             @if ($news->listImageUrl == null)
-                                                <img height="100" src='/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' alt="">
+                                                <img height="100" src='/upload/news/16033381990e65972dce68dad4d52d063967f0a705.jpg' alt="">
                                             @else
                                                 <img height="100" src='{{ $news->listImageUrl }}' alt="">
                                             @endif
