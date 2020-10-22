@@ -19,7 +19,8 @@
                             <option id="productType_0" value="">全部商品</option>
                             @foreach ($productTypes as $productType)
                                 <option id="productType_{{ $productType->id }}" value="{{ $productType->typeName }}">
-                                    {{ $productType->typeName }}</option>
+                                    {{ $productType->typeName }}
+                                </option>
                             @endforeach
                         </select>
                         <hr>
@@ -35,57 +36,47 @@
                                     <th>類別(productType)</th>
                                     <th>庫存數量(stock)</th>
                                     {{-- 顯示的部分之後調整到功能區 --}}
-                                    <th>顯示(visble)</th>
+                                    {{-- <th>顯示(visble)</th> --}}
                                     <th width="120">功能</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @for ($i = 0; $i < sizeof($products); $i++)
 
+                                @foreach ($products as $product)
 
-                                {{-- @foreach ($products,$arr as $product, $arr) --}}
                                     <tr>
-                                        <td>{{ $products[$i]->productName }}</td>
-                                        <td>{{ $products[$i]->price }}</td>
-                                        <td>{{ $products[$i]->content }}</td>
-                                        <td>{{ $products[$i]->sort }}</td>
+                                        <td>{{ $product->productName }}</td>
+                                        <td>{{ $product->price }}</td>
+                                        <td>{{ $product->content }}</td>
+                                        <td>{{ $product->sort }}</td>
                                         <td class="d-flex">
-                                            @foreach ($products[$i]->productMainImg as $MainImg)
+                                            @foreach ($product->productMainImg as $MainImg)
                                                 <img class="m-1" height="75" src="{{ $MainImg->imageUrl }}" alt="">
                                             @endforeach
                                         </td>
                                         <td>
 
-                                            {{ $products[$i]->productType->typeName }}
+                                            {{ $product->productType->typeName }}
 
                                         </td>
 
                                         <td>
+                                            @foreach ($product->stock as $stk)
 
-                                            <select name="stock" id="productInfo">
+                                                <p>{{ $stk->size }} : {{ $stk->amount }}</p>
 
+                                            @endforeach
 
-                                                {{-- @foreach ($arrs[$i] as $arr)
-
-                                                    <option value="" disabled> {{$arr->type}} : {{ $arr->amount }}
-                                                    </option>
-
-                                                @endforeach --}}
-
-                                            </select>
                                         </td>
-                                        <td>{{ $products[$i]->visible }}</td>
                                         <td>
                                             <a class="btn btn-success btn-sm"
-                                                href='/admin/products/edit/{{ $products[$i]->id }}'>編輯</a>
+                                                href='/admin/products/edit/{{ $product->id }}'>編輯</a>
                                             <button class="btn btn-sm btn-danger btn-delete"
-                                                data-itemid="{{ $products[$i]->id }}">刪除</button>
+                                                data-itemid="{{ $product->id }}">刪除</button>
                                         </td>
                                     </tr>
-                                    @endfor
-                                {{-- @endforeach --}}
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -104,12 +95,15 @@
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
-                "order": [[3, "desc"], [1, "desc"]] //根據第三欄及第一欄倒序排列
+                "order": [
+                    [3, "desc"],
+                    [1, "desc"]
+                ] //根據第三欄及第一欄倒序排列
             });
             //利用第三層產品類別做搜尋
             $('#productType').on('change', function() {
-                    table.columns(5).search($(this).val()).draw();
-                 });
+                table.columns(5).search($(this).val()).draw();
+            });
         });
 
         $("#example").on("click", ".btn-delete", function() {
@@ -125,18 +119,12 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Swal.fire(
-                    // 'Deleted!',
-                    // 'Your file has been deleted.',
-                    // 'success'
-                    // )
-                    window.location.href = `/admin/productClasses/destroy/${item_id}`;
+
+                    window.location.href = `/admin/products/destroy/${item_id}`;
 
                 }
             })
         })
-
-
 
     </script>
 @endsection

@@ -8,7 +8,7 @@ class Product extends Model
 {
 
     protected $fillable = [
-        'productName', 'price', 'content', 'sort', 'stockType', 'visible', 'product_type_id'
+        'productName', 'price', 'content', 'sort', 'stockType', 'product_type_id'
     ];
 
     public function productType()
@@ -21,10 +21,10 @@ class Product extends Model
         return $this->hasMany('App\ProductMainImg');
     }
 
-    // public function stock()
-    // {
-    //     return $this->hasMany('App\Stock');
-    // }
+    public function stock()
+    {
+        return $this->hasMany('App\Stock');
+    }
 
     // public function event_product_intermediary()
     // {

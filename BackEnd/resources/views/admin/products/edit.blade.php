@@ -51,33 +51,39 @@
                     <option value=""></option>
                     @foreach ($productTypes as $productType)
 
-                        @if ($product->product_type_id == $productType->id){
-                            <option value="{{ $productType->id }}" selected>{{ $productType->typeName }}
-                            </option>
-                            }
+                        <option value="{{ $productType->id }}" @if ($product->product_type_id == $productType->id) selected @endif>{{ $productType->typeName }}
+                        </option>
 
-                        @else
-                            <option value="{{ $productType->id }}">{{ $productType->typeName }}
-                            </option>
 
-                        @endif
                     @endforeach
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="visible">商品是否顯示</label>
-                <select name="visible" id="visible">
-                    @if ($product->visible == 1)
-                        <option value="1" selected>顯示</option>
-                        <option value="0">不顯示</option>
-                    @else
-                        <option value="1">顯示</option>
-                        <option value="0" selected>不顯示</option>
-                    @endif
-                </select>
+            <hr>
+            <div class="form-group" id="spec">
 
+                <h5 class="my-2">新增產品規格(選填)</h5>
+
+                <div class="row">
+                <label for="size_XS" class="col-2 p-1" >XS:
+                    <input name="size_XS" value="{{ $product->stock[0]->amount }}" type="number" class="form-control" value="0" id="size_XS" aria-describedby="emailHelp">
+                </label>
+                <label for="size_S" class="col-2 p-1" >S:
+                    <input name="size_S"  value="{{ $product->stock[1]->amount }}" type="number" class="form-control" value="0" id="size_S" aria-describedby="emailHelp">
+                </label>
+                <label for="size_M" class="col-2 p-1" >M:
+                    <input name="size_M" value="{{ $product->stock[2]->amount }}" type="number" class="form-control" value="0" id="size_M" aria-describedby="emailHelp">
+                </label>
+                <label for="size_L" class="col-2 p-1" >L:
+                    <input name="size_L" value="{{ $product->stock[3]->amount }}" type="number" class="form-control" value="0" id="size_L" aria-describedby="emailHelp">
+                </label>
+                <label for="size_XL" class="col-2 p-1" >XL:
+                    <input name="size_XL" value="{{ $product->stock[4]->amount }}" type="number" class="form-control" value="0" id="size_XL" aria-describedby="emailHelp">
+                </label>
+                </div>
             </div>
+
+
             <hr>
 
             <h3>商品圖片管理</h3>
@@ -88,8 +94,8 @@
                     主視覺圖<br>
                     <div class="d-flex flex-column">
                         <img width="200" src="{{ $Img->imageUrl }}" alt="" srcset="">
-                        <label for="sort">權重</label>
-                        <input type="number" name="sort" id="sort" value="{{ $Img->sort }}">
+                        {{-- <label for="sort">權重</label>
+                        <input type="number" name="sort" id="sort" value="{{ $Img->sort }}"> --}}
                     </div>
 
 
@@ -100,14 +106,12 @@
                             <div class="col-12">
                                 <img width="75" src="{{ $infoImg->imageUrl }}" alt="" srcset="">
                             </div>
-                            <div class="col-3"> <label for="sort">權重</label>
+                            {{-- <div class="col-3"> <label for="sort">權重</label>
                             </div>
                             <div class="col-9">
                                 <input class="col-9" type="number" name="sort" id="sort" value="{{ $infoImg->sort }}">
-                            </div>
-                            <br>
-
-
+                            </div> --}}
+                            {{-- <br> --}}
                         @endforeach
 
                     </div>
@@ -124,22 +128,61 @@
                     <br>
                 @endforeach
 
-                <div class="d-flex">
+                {{-- <div class="d-flex">
                     <a id="imgs_btn_add" href="#imgs" type="button" class="btn btn-success mx-1">新增一組圖片</a>
                     <a id="imgs_btn_delete" href="#imgs" type="button" class="btn btn-danger mx-1">刪除一組圖片</a>
                     <a id="imgs_btn_confirm" type="button" class="btn btn-primary mx-1">確認修改</a>
-                </div>
-                <h5 class="my-2">上傳商品主視覺及商品內頁照片(必填)</h5>
+                </div> --}}
+                {{-- <h5 class="my-2">上傳商品主視覺及商品內頁照片(必填)</h5> --}}
                 {{-- <label for="mainImageurl"></label>
                 <input name="mainImageurl" type="file" class="form-control-file" id="mainImageurl" required>
                 <label for="infoImageurl"></label>
-                <input name="infoImageurl[]" multiple type="file" class="form-control-file" id="infoImageurl">
-                --}}
+                <input name="infoImageurl[]" multiple type="file" class="form-control-file" id="infoImageurl"> --}}
+
+
+                <hr>
+
+
+            <div class="form-group row" id="imgs">
+
+                {{-- <div class="d-flex">
+                    <a id="imgs_btn_add" href="#imgs" type="button" class="btn btn-success mx-1">新增一組圖片</a>
+                    <a id="imgs_btn_delete" href="#imgs" type="button" class="btn btn-danger mx-1">刪除一組圖片</a>
+                </div> --}}
+                <div class="col-3">
+                    <h5 class="mb-3">修改第一組商品主視覺及商品內頁照片</h5>
+                <label for="mainImageurl_0">主視覺圖<small class="text-danger">(必填)</small></label>
+                <input name="mainImageurl_0" type="file" class="form-control-file mb-3" id="mainImageurl_0" required>
+                <label for="infoImageurl_0">商品內頁組圖(選填，可選多張)</label>
+                <input name="infoImageur_0[]" multiple type="file" class="form-control-file" id="infoImageurl_0">
+                </div>
+                <div class="col-3">
+                    <h5 class="mb-3">修改第二組商品主視覺及商品內頁照片</h5>
+                <label for="mainImageurl_1">主視覺圖<small class="text-danger">(選填)</small></label>
+                <input name="mainImageurl_1" type="file" class="form-control-file mb-3" id="mainImageurl_1" >
+                <label for="infoImageurl_1">商品內頁組圖(選填，可選多張)</label>
+                <input name="infoImageurl_1[]" multiple type="file" class="form-control-file" id="infoImageurl_1">
+                </div>
+                <div class="col-3">
+                    <h5 class="mb-3">修改第三組商品主視覺及商品內頁照片</h5>
+                <label for="mainImageurl_2">主視覺圖<small class="text-danger">(選填)</small></label>
+                <input name="mainImageurl_2" type="file" class="form-control-file mb-3" id="mainImageurl_2" >
+                <label for="infoImageurl_2">商品內頁組圖(選填，可選多張)</label>
+                <input name="infoImageurl_2[]" multiple type="file" class="form-control-file" id="infoImageurl_2">
+                </div>
+
 
             </div>
+
+            </div>
+
+
+
+
+
             <hr>
 
-            <h3>庫存管理</h3>
+            {{-- <h3>庫存管理</h3>
 
             <div class="form-group" id="spec">
                 <div class="d-flex">
@@ -150,7 +193,7 @@
                 <h5 class="my-2">新增產品規格(選填)</h5>
 
             </div>
-            <hr>
+            <hr> --}}
 
             <button type="submit" class="btn btn-primary">送出</button>
         </form>

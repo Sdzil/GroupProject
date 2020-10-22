@@ -8,7 +8,9 @@ use App\Product;
 use App\ProductInfoImg;
 use App\ProductMainImg;
 use App\ProductType;
+use App\Stock;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -20,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         //這樣抓確實會把關聯項目一起抓出來
-        $products = Product::with('productType')->with('productMainImg')->get();
+        $products = Product::with('productType')->with('productMainImg')->with('stock')->get();
         // dd($products);
         // $length = sizeof($products->all());
         // dd($length);
@@ -60,12 +62,11 @@ class ProductController extends Controller
         //取得表單內所有資料
         //資料內含要存去
         // $requestData = $request->all();
-
+        // dd($request->all());
         // $id = 0;
         // $all = $request->has('stockType_'.$id);
         $all = $request->all();
         // $temp = "stockType_".$id;
-
 
         // for ($i=0;  ; $i++) {
         //     if($request->has('stockType_'.$i)){
@@ -89,11 +90,40 @@ class ProductController extends Controller
         //這邊取得id是要給主視覺圖做關聯
         $productId =  Product::create($all)->id;
 
-        $productTemp = Product::find($productId);
+        // $productTemp = Product::find($productId);
         // $productTemp->productInfo =$info;
-        $productTemp->save();
+        // $productTemp->save();
 
-        for ($i=0;  ; $i++) {
+
+        $sizeType = new Stock;
+        $sizeType->size = "XS";
+        $sizeType->amount = $all["size_XS"];
+        $sizeType->product_id = $productId;
+        $sizeType->save();
+        $sizeType = new Stock;
+        $sizeType->size = "S";
+        $sizeType->amount = $all["size_S"];
+        $sizeType->product_id = $productId;
+        $sizeType->save();
+        $sizeType = new Stock;
+        $sizeType->size = "M";
+        $sizeType->amount = $all["size_M"];
+        $sizeType->product_id = $productId;
+        $sizeType->save();
+        $sizeType = new Stock;
+        $sizeType->size = "L";
+        $sizeType->amount = $all["size_L"];
+        $sizeType->product_id = $productId;
+        $sizeType->save();
+        $sizeType = new Stock;
+        $sizeType->size = "XL";
+        $sizeType->amount = $all["size_XL"];
+        $sizeType->product_id = $productId;
+        $sizeType->save();
+
+
+
+        for ($i=0; $i < 3 ; $i++) {
             if($request->hasFile('mainImageurl_'.$i)){
                 //先上傳主視覺圖
                 $mainImg = new ProductMainImg;
@@ -177,17 +207,19 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('productType')->with('productMainImg')->find($id);
+        $product = Product::with('productType')->with('productMainImg')->with('stock')->find($id);
 
         // dd(json_decode($products->all()[0]->productinfo));
 
         // dd($product->productMainImg);
-           $arrs= json_decode($product->productInfo);
+        //    $arrs= json_decode($product->productInfo);
+        // $stock = Product::with('stock')->find($id);
 
+        // dd($stock);
 
         $productTypes = ProductType::orderBy('sort', 'desc')->get();
 
-        return view('admin.products.edit', compact('product','arrs', 'productTypes'));
+        return view('admin.products.edit', compact('product', 'productTypes'));
     }
 
     /**
@@ -199,9 +231,57 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all(), $id);
+
+        $all = $request->all();
+        dd($request->all(), $id);
         $product = Product::find($id);
         $product->update($request->all());
+
+        $size_xs = Stock::where("product_id", $id)->where("size","XS")->get();
+        $size_xs->amount = $all["size_XS"];
+        $size_s = Stock::where("product_id", $id)->where("size","S")->get();
+        $size_s->amount = $all["size_S"];
+        $size_m = Stock::where("product_id", $id)->where("size","M")->get();
+        $size_m->amount = $all["size_M"];
+        $size_l = Stock::where("product_id", $id)->where("size","L")->get();
+        $size_l->amount = $all["size_L"];
+        $size_xl = Stock::where("product_id", $id)->where("size","XL")->get();
+        $size_xl->amount = $all["size_XL"];
+
+
+        $item = productMainImg::where("product_id",$id)->get();
+        dd("編輯圖片未完成");
+        $requestData = $request->all();
+        if($request->hasFile('mainImageurl_0')) {
+            $old_image = $item->imageUrl;
+            $file = $request->file('mainImageurl_0');
+            $path = $this->fileUpload($file,'mainImgs');
+            $item->imageUrl = $path;
+            $item->save();
+            File::delete(public_path().$old_image);
+
+        }
+
+
+
+        if($request->hasFile('infoImageurl_0')) {
+            $old_image = $item->infoImageUrl;
+            $file = $request->file('infoImageUrl');
+            $path = $this->fileUpload($file,'news');
+            $requestData['infoImageUrl'] = $path;
+            File::delete(public_path().$old_image);
+
+        }
+
+        $item->update($requestData);
+
+
+
+
+
+
+
+
 
         return redirect('admin/products');
 
