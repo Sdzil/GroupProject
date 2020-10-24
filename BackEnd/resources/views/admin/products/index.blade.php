@@ -13,16 +13,20 @@
                     <div class="card-header">產品管理 - Product</div>
 
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/products/create">新增產品</a>
+                        <div class="row justify-content-between px-3">
+                            <a class="btn btn-success" href="/admin/products/create">新增產品</a>
 
-                        <select name="productType" id="productType">
-                            <option id="productType_0" value="">全部商品</option>
-                            @foreach ($productTypes as $productType)
-                                <option id="productType_{{ $productType->id }}" value="{{ $productType->typeName }}">
-                                    {{ $productType->typeName }}
-                                </option>
-                            @endforeach
-                        </select>
+                            <select name="productType" id="productType" class="right form-contorl">
+                                <option id="productType_0" value="">全部商品</option>
+                                @foreach ($productTypes as $productType)
+                                    <option id="productType_{{ $productType->id }}" value="{{ $productType->typeName }}">
+                                        {{ $productType->typeName }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
                         <hr>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -30,6 +34,7 @@
                                 <tr>
                                     <th>產品名稱(productName)</th>
                                     <th>價格(price)</th>
+                                    <th>產品資訊(productInfo)</th>
                                     <th>描述(content)</th>
                                     <th>排序(sort)</th>
                                     <th>主視覺圖(mainImage)</th>
@@ -48,6 +53,9 @@
                                     <tr>
                                         <td>{{ $product->productName }}</td>
                                         <td>{{ $product->price }}</td>
+                                        <td>
+                                            <img class="m-1" height="75" src="{{ $product->productInfo }}" alt="">
+                                        </td>
                                         <td>{{ $product->content }}</td>
                                         <td>{{ $product->sort }}</td>
                                         <td class="d-flex">
@@ -62,11 +70,28 @@
                                         </td>
 
                                         <td>
-                                            @foreach ($product->stock as $stk)
-
-                                                <p>{{ $stk->size }} : {{ $stk->amount }}</p>
-
-                                            @endforeach
+                                            @for ($i = 0; $i < 6; $i++)
+                                                @if ($product->product_type_id < 11)
+                                                    @if ($i < 5)
+                                                        <p>{{ $product->stock[$i]->size }} : {{ $product->stock[$i]->amount }} 件</p>
+                                                    @else
+                                                        @continue
+                                                    @endif
+                                                @else
+                                                    @if ($i == 5)
+                                                        <p>{{ $product->stock[$i]->amount }} 個</p>
+                                                    @else
+                                                        @continue
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                            {{-- @foreach ($product->stock as $stk)
+                                                @if ($product->productType < 11)
+                                                    <p>{{ $stk->size }} : {{ $stk->amount }}</p>
+                                                @else
+                                                    <p>@if {{ $stk->size }} : {{ $stk->amount }}</p>
+                                                @endif
+                                            @endforeach --}}
 
                                         </td>
                                         <td>
@@ -96,7 +121,7 @@
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "order": [
-                    [3, "desc"],
+                    [4, "desc"],
                     [1, "desc"]
                 ] //根據第三欄及第一欄倒序排列
             });

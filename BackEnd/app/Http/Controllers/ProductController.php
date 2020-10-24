@@ -32,6 +32,7 @@ class ProductController extends Controller
         //    $arrs[$i] = $i;
         // }
         $productTypes = ProductType::orderBy('sort', 'desc')->get();
+        // dd($products[22]->stock);
         // dd($arrs);
         // $key = key($arr[3][0]);
         // dd(key($arr[3][0]), $arr[3][0]->$key);
@@ -78,6 +79,21 @@ class ProductController extends Controller
         //     }
         // }
 
+        if($request->hasFile('productInfo')){
+            //上傳產品敘述圖
+            // $InfoImg = new ProductMainImg;
+            $file = $request->file('productInfo');
+            $path = $this->fileUpload($file, 'productInfo');
+            $all['productInfo'] = $path;
+            // $mainImg->product_id = $productId;
+            // $mainImg->save();
+        }
+        // dd($all);
+
+
+
+
+
         // $info = json_encode($a);
         // dd($a,$info);
         // $requestData = $request->hasFile("mainImageurl_".$id);
@@ -94,33 +110,39 @@ class ProductController extends Controller
         // $productTemp->productInfo =$info;
         // $productTemp->save();
 
-
-        $sizeType = new Stock;
-        $sizeType->size = "XS";
-        $sizeType->amount = $all["size_XS"];
-        $sizeType->product_id = $productId;
-        $sizeType->save();
-        $sizeType = new Stock;
-        $sizeType->size = "S";
-        $sizeType->amount = $all["size_S"];
-        $sizeType->product_id = $productId;
-        $sizeType->save();
-        $sizeType = new Stock;
-        $sizeType->size = "M";
-        $sizeType->amount = $all["size_M"];
-        $sizeType->product_id = $productId;
-        $sizeType->save();
-        $sizeType = new Stock;
-        $sizeType->size = "L";
-        $sizeType->amount = $all["size_L"];
-        $sizeType->product_id = $productId;
-        $sizeType->save();
-        $sizeType = new Stock;
-        $sizeType->size = "XL";
-        $sizeType->amount = $all["size_XL"];
-        $sizeType->product_id = $productId;
-        $sizeType->save();
-
+        // if($request->product_type_id < 11){
+            $sizeType = new Stock;
+            $sizeType->size = "XS";
+            $sizeType->amount = $all["size_XS"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+            $sizeType = new Stock;
+            $sizeType->size = "S";
+            $sizeType->amount = $all["size_S"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+            $sizeType = new Stock;
+            $sizeType->size = "M";
+            $sizeType->amount = $all["size_M"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+            $sizeType = new Stock;
+            $sizeType->size = "L";
+            $sizeType->amount = $all["size_L"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+            $sizeType = new Stock;
+            $sizeType->size = "XL";
+            $sizeType->amount = $all["size_XL"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+        // }else{
+            $sizeType = new Stock;
+            $sizeType->size = "others";
+            $sizeType->amount = $all["others"];
+            $sizeType->product_id = $productId;
+            $sizeType->save();
+        // }
 
 
         for ($i=0; $i < 3 ; $i++) {
@@ -215,7 +237,7 @@ class ProductController extends Controller
         //    $arrs= json_decode($product->productInfo);
         // $stock = Product::with('stock')->find($id);
 
-        // dd($stock);
+        //  dd($product->productMainImg);
 
         $productTypes = ProductType::orderBy('sort', 'desc')->get();
 
@@ -233,54 +255,162 @@ class ProductController extends Controller
     {
 
         $all = $request->all();
-        dd($request->all(), $id);
+        // dd($request->all(), $id);
         $product = Product::find($id);
-        $product->update($request->all());
 
-        $size_xs = Stock::where("product_id", $id)->where("size","XS")->get();
-        $size_xs->amount = $all["size_XS"];
-        $size_s = Stock::where("product_id", $id)->where("size","S")->get();
-        $size_s->amount = $all["size_S"];
-        $size_m = Stock::where("product_id", $id)->where("size","M")->get();
-        $size_m->amount = $all["size_M"];
-        $size_l = Stock::where("product_id", $id)->where("size","L")->get();
-        $size_l->amount = $all["size_L"];
-        $size_xl = Stock::where("product_id", $id)->where("size","XL")->get();
-        $size_xl->amount = $all["size_XL"];
+        if($request->hasFile('productInfo')) {
 
 
-        $item = productMainImg::where("product_id",$id)->get();
-        dd("編輯圖片未完成");
-        $requestData = $request->all();
+            $old_image = $product->productInfo;
+            File::delete(public_path().$old_image);
+
+            $file = $request->file('productInfo');
+            // dd($all);
+            $path = $this->fileUpload($file,'productInfo');
+            $all["productInfo"]= $path;
+            // dd($request->productInfo);
+            // $all->update();
+
+        }
+
+        // dd($request->all(), $all);
+
+
+
+
+        $product->update($all);
+
+        $size_xs = Stock::where("product_id", $id)->where("size","XS")->first();
+        $size_xs->update(["amount"=>$all["size_XS"]]);
+        $size_s = Stock::where("product_id", $id)->where("size","S")->first();
+        $size_s->update(["amount"=>$all["size_S"]]);
+        $size_m = Stock::where("product_id", $id)->where("size","M")->first();
+        $size_m->update(["amount"=>$all["size_M"]]);
+        $size_l = Stock::where("product_id", $id)->where("size","L")->first();
+        $size_l->update(["amount"=>$all["size_L"]]);
+        $size_xl = Stock::where("product_id", $id)->where("size","XL")->first();
+        $size_xl->update(["amount"=>$all["size_XL"]]);
+        $size_ot = Stock::where("product_id", $id)->where("size","others")->first();
+        $size_ot->update(["amount"=>$all["others"]]);
+
+
+
+        $item = productMainImg::where("product_id",$id)->with("productInfoImg")->get();
+
+
+        //更新第一組主視覺
         if($request->hasFile('mainImageurl_0')) {
-            $old_image = $item->imageUrl;
+            if(sizeof($item) >= 1){
+
+            $old_image = $item[0]->imageUrl;
+            File::delete(public_path().$old_image);
+
+            }
             $file = $request->file('mainImageurl_0');
             $path = $this->fileUpload($file,'mainImgs');
-            $item->imageUrl = $path;
-            $item->save();
-            File::delete(public_path().$old_image);
+            $item[0]->imageUrl = $path;
+            $item[0]->save();
 
         }
 
-
-
+        //更新第一組組圖
         if($request->hasFile('infoImageurl_0')) {
-            $old_image = $item->infoImageUrl;
-            $file = $request->file('infoImageUrl');
-            $path = $this->fileUpload($file,'news');
-            $requestData['infoImageUrl'] = $path;
-            File::delete(public_path().$old_image);
+            //新加入的組圖
+            $mainImgId = $item[0]->id;
+            // $old_images = $item->productInfoImg;
+            $old_images = $item[0]->productInfoImg;
+            // dd($old_images);
+            foreach ($old_images as $old_image) {
+                File::delete(public_path().$old_image);
+                $old_image->delete();
+            }
+            $files = $request->file('infoImageurl_0');
+
+            foreach($files as $file){
+                $path = $this->fileUpload($file,'infoImgs');
+                        //新增資料進DB
+                        $infoImg = new ProductInfoImg;
+                        $infoImg->product_main_img_id = $mainImgId;
+                        $infoImg->imageUrl = $path;
+                        $infoImg->save();
+            }
 
         }
 
-        $item->update($requestData);
 
 
+        //更新第二組主視覺
+        if($request->hasFile('mainImageurl_1')) {
+            if(sizeof($item) >= 2){
 
+                $old_image = $item[1]->imageUrl;
+                File::delete(public_path().$old_image);
 
+                }
+            $file = $request->file('mainImageurl_1');
+            $path = $this->fileUpload($file,'mainImgs');
+            $item[1]->imageUrl = $path;
+            $item[1]->save();
 
+        }
 
+        //更新第二組組圖
+        if($request->hasFile('infoImageurl_1')) {
+            //新加入的組圖
+            $mainImgId = $item[1]->id;
+            // $old_images = $item->productInfoImg;
+            $old_images = $item[1]->productInfoImg;
 
+            foreach ($old_images as $old_image) {
+                File::delete(public_path().$old_image);
+                $old_image->delete();
+            }
+            $files = $request->file('infoImageurl_1');
+
+            foreach($files as $file){
+                $path = $this->fileUpload($file,'infoImgs');
+                        //新增資料進DB
+                        $infoImg = new ProductInfoImg;
+                        $infoImg->product_main_img_id = $mainImgId;
+                        $infoImg->imageUrl = $path;
+                        $infoImg->save();
+            }
+        }
+
+        if($request->hasFile('mainImageurl_2')) {
+            if(sizeof($item) >= 3){
+                $old_image = $item[2]->imageUrl;
+                File::delete(public_path().$old_image);
+                }
+
+            $file = $request->file('mainImageurl_2');
+            $path = $this->fileUpload($file,'mainImgs');
+            $item[2]->imageUrl = $path;
+            $item[2]->save();
+
+        }
+
+        //更新第二組組圖
+        if($request->hasFile('infoImageurl_2')) {
+            //新加入的組圖
+            $mainImgId = $item[2]->id;
+            $old_images = $item[2]->productInfoImg;
+
+            foreach ($old_images as $old_image) {
+                File::delete(public_path().$old_image);
+                $old_image->delete();
+            }
+            $files = $request->file('infoImageurl_2');
+
+            foreach($files as $file){
+                $path = $this->fileUpload($file,'infoImgs');
+                        //新增資料進DB
+                        $infoImg = new ProductInfoImg;
+                        $infoImg->product_main_img_id = $mainImgId;
+                        $infoImg->imageUrl = $path;
+                        $infoImg->save();
+            }
+        }
 
 
         return redirect('admin/products');

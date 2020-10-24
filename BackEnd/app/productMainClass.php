@@ -17,6 +17,7 @@ class ProductMainClass extends Model
     public function productClass()
     {
         return $this->hasMany('App\ProductClass');
+        
     }
 
 }

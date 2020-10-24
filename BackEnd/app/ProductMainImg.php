@@ -17,6 +17,7 @@ class ProductMainImg extends Model
 
     public function productInfoImg()
     {
-        return $this->hasMany('App\productInfoImg');
+        return $this->hasMany('App\ProductInfoImg');
+
     }
 }

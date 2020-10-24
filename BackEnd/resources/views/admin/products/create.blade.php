@@ -45,7 +45,6 @@
             <div class="form-group">
                 <label for="className">第三層類別名稱(必填)</label>
                 <select name="product_type_id" id="product_type_id" required>
-                    <option value=""></option>
                     @foreach ($productTypes as $productType)
 
                         <option value="{{ $productType->id }}">{{ $productType->typeName }}
@@ -53,6 +52,13 @@
 
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group">
+
+                <label for="productInfo">商品資訊圖<small class="text-danger">(必填)</small></label>
+                <input name="productInfo" type="file" class="form-control-file mb-3" id="productInfo" required>
+
             </div>
             {{-- <div class="form-group">
                 <label for="visible">商品是否顯示 <small class="text-danger">預設為顯示</small></label>
@@ -77,7 +83,7 @@
                 <label for="qty">數量</label>
                 <input name="qty" type="text" class="form-control" id="qty" aria-describedby="emailHelp" required>
                 --}}
-                <div class="row">
+                <div class="row cloth">
                 <label for="size_XS" class="col-2 p-1" >XS:
                     <input name="size_XS" type="number" class="form-control" value="0" id="size_XS" aria-describedby="emailHelp">
                 </label>
@@ -94,6 +100,13 @@
                     <input name="size_XL" type="number" class="form-control" value="0" id="size_XL" aria-describedby="emailHelp">
                 </label>
                 </div>
+
+                <div class="row d-none others">
+                    <label for="others" class="col-2 p-1" >數量:
+                        <input name="others" type="number" class="form-control" value="0" id="others" aria-describedby="emailHelp">
+                    </label>
+                    </div>
+
             </div>
 
             <hr>
@@ -140,6 +153,21 @@
 @section('js')
 
     <script>
+
+        $('#product_type_id').change(function(){
+            var type = $(this).val();
+            console.log(type);
+            if (type < 11) {
+                $(".cloth").removeClass("d-none");
+                $(".others").addClass("d-none");
+            }else{
+                $(".cloth").addClass("d-none");
+                $(".others").removeClass("d-none");
+            }
+
+        });
+
+
         //新增規格
         // $('#spec_btn_add').click(function() {
 
