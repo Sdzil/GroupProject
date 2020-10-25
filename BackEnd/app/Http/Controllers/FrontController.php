@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
+use App\Contact;
 use App\News;
 use App\Product;
 use App\ProductClass;
@@ -10,6 +11,15 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+
+    public function layouts()
+    {
+
+        return view('layouts.front_layouts');
+
+    }
+
+
     public function index()
     {
         // $productClasses = ProductClass::with('productMainClass')->get();
@@ -31,5 +41,22 @@ class FrontController extends Controller
 
         return view('front.index', compact('banners', 'product', 'sport', 'news'));
     }
+
+    public function contacts()
+    {
+
+        return view('front.contacts');
+
+    }
+
+    public function contacts_store(Request $request)
+    {
+
+        // dd($request);
+        Contact::create($request->all());
+
+        return redirect('contacts');
+    }
+
 }
 

@@ -15,8 +15,19 @@
 //     return view('welcome');
 // });
 
+////前端控制器////
 Route::get('/', 'FrontController@index');
 
+Route::get('/layouts', 'FrontController@layouts');
+
+Route::get('/contacts', 'FrontController@contacts');
+
+Route::post('/contacts/store', 'FrontController@contacts_store');
+
+
+
+
+////後端控制器////
 Auth::routes(['register' => false, 'reset' =>false, 'verify' =>false]);
 
 Route::get('/admin', 'HomeController@index')->name('home');

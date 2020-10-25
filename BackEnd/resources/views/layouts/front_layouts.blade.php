@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    {{--
-    <link rel="stylesheet" href="/css/index/index sass.css">
-    <link rel="stylesheet" href="/js/index/nav.js">
-    <link rel="stylesheet" href="/css/index/rwd.css">
-    <link rel="stylesheet" href="/css/index/nav.css"> --}}
+
+
+    <link rel="stylesheet" href="/css/layouts/layouts.css">
+    <link rel="stylesheet" href="/css/layouts/nav.css">
+    <link rel="stylesheet" href="/css/layouts/rwd.css">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {{--
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
+
+
     @yield('css')
 </head>
 
@@ -36,7 +36,7 @@
                         <a href=""><img src="/images/index/shopping-cart.png" alt="" id="buycar_img"></a>
                     </div>
                     <div id="nav_contact" class="col-md-2 col-xl-1 text-nowrap">
-                        <a href="" style="color:white">聯絡我們</a>
+                        <a href="/contacts" style="color:white">聯絡我們</a>
                     </div>
                     <div id="live" class="col-2">
                         <a href="">
@@ -71,7 +71,7 @@
                         <a href="#">
                             <li>會員登入</li>
                         </a>
-                        <a href="#">
+                        <a href="/contacts">
                             <li>聯絡我們</li>
                         </a>
                         <a href="#">
@@ -188,6 +188,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+
+    {{-- Anime --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 
     @yield('js')
 
