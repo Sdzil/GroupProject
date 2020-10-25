@@ -6,7 +6,9 @@ use App\Banner;
 use App\Contact;
 use App\News;
 use App\Product;
+use App\ProductMainClass;
 use App\ProductClass;
+use App\ProductType;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -68,7 +70,10 @@ class FrontController extends Controller
 
     public function cloth(){
 
-        return view('front.');
+        $productclasses = ProductMainClass::find(1)->productClass->all();
+        // dd($productclasses[0]->productType[0]->product[0]->productMainImg[0]->imageUrl);
+
+        return view('front.product_list', compact('productclasses'));
     }
 
 

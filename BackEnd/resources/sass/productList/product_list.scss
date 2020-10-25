@@ -1,0 +1,173 @@
+
+// text
+$this_page: 30px;
+$card_name: 20px;
+$card_kind: 20px;
+$function_name: 20px;
+$breadcruch: 18px;
+$soldOut: 15px;
+$brand_name-text: 20px;
+$product_name-text: 20px;
+$price-text: 20px;
+// color
+$card: white;
+$card_space: transparent;
+$dashboard: transparent;
+$soldOut: white;
+$soldOut_icon-color: black;
+$brand_name-color: grey;
+$product_name-color: black;
+$price-color: black;
+
+
+// visibility
+$soldOut_icon-vi: visible;
+$new_icon-vi: visible;
+
+
+.footer_height{
+    margin-top: 70px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    .footer_block{
+        width: 100%;
+        height: 12vh;
+      
+    }
+
+    *{
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    .magrin-0_auto {
+        margin: 0 auto;
+    }
+    .title-contain {
+        width: 100%;
+    }
+    
+    
+
+    // section1
+    // .title-contain{
+    //     margin: ;
+    // }
+    #breadcrumb{
+        margin: 25px 0 50px 0 ;
+
+    .breadcrumb {
+        background-color: transparent;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .now_page {
+        padding: 0 0 0 5px;
+        margin: 5px 0;
+        font-size: $this_page;
+    }
+}
+
+    // section2
+
+    .container {
+        background-color: $dashboard;
+        
+       
+
+        .card {
+            background-color: $card_space;
+            border: rgb(80,80,80) 1px solid;
+            
+            padding: 10px;
+
+            .card-container {
+                width: 100%;
+                background-color: $card;
+                border-radius: 10px;
+                margin: auto;
+                .card-container-theme {
+                    width: calc(100%-10px);
+                    position: relative;
+                    .product_photo {
+                        width: 100%;
+                        .new_icon {
+                            visibility: $new_icon-vi;
+                            background-color: transparent;
+                            border: red 1px solid;
+                            color: red;
+                            border-radius: 10px;
+                            position: absolute;
+                            width: 20%;
+                            text-align: center;
+                            top: 10px;
+                            right: 20px;
+                        }
+                        .soldOut_icon {
+                            visibility: $soldOut_icon-vi;
+                            width: 22%;
+                            border-radius: 10px;
+                            font-size: $soldOut;
+                            color: $soldOut;
+                            background-color: $soldOut_icon-color;
+                            position: absolute;
+                            top: 15px;
+                            left: 20px;
+                            text-align: center;
+                        }
+                        .d-none {
+                            display: none;
+                        }
+                    }
+                    .product_info {
+                        padding: 5px;
+
+                        .product_info-item {
+                            margin: 5px 0;
+                        }
+                        .brand_name {
+                            color: $brand_name-color;
+                            font-size: $brand_name-text;
+                        }
+                        .product_name {
+                            color: $product_name-color;
+                            font-size: $product_name-text;
+                        }
+                        .product_price {
+                            color: $price-color;
+                            font-size: $price-text;
+                        }
+                        .color {
+                            width: 20px;
+                            height: 20px;
+                            margin: 5px;
+                        }
+                        .white {
+                            background-color: yellow;
+                        }
+                        .red {
+                            background-color: rgb(0, 100, 0);
+                        }
+                        .blue {
+                            background-color: royalblue;
+                        }
+                        .black {
+                            background-color: black;
+                        }
+
+                        .colors {
+                            display: flex;
+                            justify-items: space-around;
+                            align-self: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+}
