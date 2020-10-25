@@ -66,6 +66,11 @@ class FrontController extends Controller
 
     }
 
+    public function cloth(){
+
+        return view('front.');
+    }
+
 
     public function contacts()
     {
