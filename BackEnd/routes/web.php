@@ -20,6 +20,8 @@ Route::get('/', 'FrontController@index');
 
 Route::get('/layouts', 'FrontController@layouts');
 
+Route::get('/news', 'FrontController@news');
+
 Route::get('/contacts', 'FrontController@contacts');
 
 Route::post('/contacts/store', 'FrontController@contacts_store');

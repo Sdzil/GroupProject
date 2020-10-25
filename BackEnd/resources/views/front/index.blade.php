@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <style>
-        .swiper-container{
+        /* .swiper-container{
             margin-top: 100px;
-        }
+        } */
 
         .swiper-slide img{
             width: 100vw;

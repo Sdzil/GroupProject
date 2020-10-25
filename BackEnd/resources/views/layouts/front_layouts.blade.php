@@ -39,7 +39,7 @@
                         <a href="/contacts" style="color:white">聯絡我們</a>
                     </div>
                     <div id="live" class="col-2">
-                        <a href="">
+                        <a href="https://notorious-2019.com/live.aspx" target="_blank">
                             <h1 class="ml2" style="color:red">直播間</h1>
                         </a>
                     </div>
@@ -74,7 +74,7 @@
                         <a href="/contacts">
                             <li>聯絡我們</li>
                         </a>
-                        <a href="#">
+                        <a href="https://notorious-2019.com/live.aspx" target="_blank">
                             <li>直播間</li>
                         </a>
 
@@ -90,10 +90,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-3 middle">
-                            <a href="" style="color:white">最新消息</a>
+                            <a href="/" style="color:white">首頁</a>
                         </div>
                         <div class="col-3 middle">
-                            <a href="" style="color:white">鬼滅之刃</a>
+                            <a href="/news" style="color:white">最新消息</a>
                         </div>
                         <div class="col-3 middle">
                             <a href="" style="color:white">流行服飾</a>

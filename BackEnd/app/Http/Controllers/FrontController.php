@@ -42,6 +42,19 @@ class FrontController extends Controller
         return view('front.index', compact('banners', 'product', 'sport', 'news'));
     }
 
+    public function news()
+    {
+
+        $newsList = News::orderBy('sort','desc')->get()->all();
+
+
+            // dd($newsList[0]->title);
+
+        return view('front.news', compact('newsList'));
+
+    }
+
+
     public function contacts()
     {
 

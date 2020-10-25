@@ -1,35 +1,33 @@
 
-
-#sectionmune {
+#sectionmaue {
   width: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  overflow: hidden;
 }
 
-#sectionmune #leftmune {
+#sectionmaue #leftmaue {
   width: 60%;
+  height: 100%;
   background-image: url("https://img.notorious-2019.com/743ca70d7669a92766433576.jpg");
   background-size: cover;
   background-position: top;
 }
 
-#sectionmune #rightmune {
+#sectionmaue #rightmaue {
   width: 40%;
+  height: 100%;
   background-color: #9b9b9b;
-  overflow: hidden;
 }
 
-#sectionmune #rightmune .munebox {
+#sectionmaue #rightmaue .mauebox {
   width: 50%;
-  height: 300px;
+  height: 100%;
   background-color: white;
 }
 
-#sectionmune #rightmune .textbox {
+#sectionmaue #rightmaue .textbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,54 +41,53 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: hidden;
 }
 
-#sectionmune #rightmune .textbox .bottomline {
+#sectionmaue #rightmaue .textbox .bottomline {
   width: 25px;
   height: 3px;
   background-color: #b4b3b3;
   display: block;
 }
 
-#sectionmune #rightmune .textbox .title {
+#sectionmaue #rightmaue .textbox .title {
   font-size: 1.625rem;
   font-weight: bold;
 }
 
-#sectionmune #rightmune .flow {
+#sectionmaue #rightmaue .flow {
   overflow: hidden;
 }
 
-#sectionmune #rightmune .photobox {
+#sectionmaue #rightmaue .photobox {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
 
-#sectionmune #rightmune .photobox:hover {
+#sectionmaue #rightmaue .photobox:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
 
-#sectionmune #rightmune .textbox:hover ~ .flow .photobox {
+#sectionmaue #rightmaue .textbox:hover ~ .flow .photobox {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
 
-#sectionmune #rightmune #top_mune {
+#sectionmaue #rightmaue #top_maue {
   width: 100%;
+  height: 33.33333%;
   background-color: rosybrown;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
-#sectionmune #middle_mune {
+#sectionmaue #middle_maue {
   width: 100%;
+  height: 33.33333%;
   background-color: royalblue;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,33 +96,30 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
-#sectionmune #bottom_mune {
+#sectionmaue #bottom_maue {
   width: 100%;
+  height: 33.33333%;
   background-color: sandybrown;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 #sectioncard {
   width: 100%;
+  height: 500px;
   margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #343434;
-  overflow: hidden;
 }
 
 #sectioncard .leftbox {
   width: 60%;
-  height: 500px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,7 +148,7 @@
 
 #sectioncard .rightbox {
   width: 40%;
-  height: 500px;
+  height: 100%;
   color: white;
   background-image: url("https://static.wixstatic.com/media/8c25ee_55209cb732b24cfa893547e9991e66aa~mv2.png/v1/fill/w_1000,h_434,al_c,usm_0.66_1.00_0.01/8c25ee_55209cb732b24cfa893547e9991e66aa~mv2.png");
   background-size: contain;
@@ -179,7 +173,7 @@
 }
 
 #sectioncard .rightbox .photoicon {
-  width: 25%;
+  width: 20%;
   height: 5%;
   color: white;
   display: -webkit-box;
@@ -191,9 +185,9 @@
 }
 
 #sectioncard .rightbox .photoicon .icon {
-  width: 25px;
-  height: 25px;
-  background-image: url("/images/index/二頭肌123.png");
+  width: 20%;
+  height: 100%;
+  background-image: url("/image/二頭肌123.png");
   background-size: cover;
   background-position: center;
   margin-right: 10px;
@@ -209,12 +203,12 @@
 
 #bigcard_section {
   width: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  overflow: hidden;
 }
 
 #bigcard_section #bigcard_title {
@@ -233,26 +227,19 @@
 
 #bigcard_section .black_decoration {
   width: 10%;
-  height: 150px;
+  height: 10%;
   background-color: black;
-  margin-top: 100px;
 }
 
 #bigcard_section #bigcard {
   width: 80%;
+  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-bottom: 200px;
-}
-
-#bigcard_section #bigcard .card {
-  width: 30%;
 }
 
 #bigcard_section #bigcard .card .card-img-top {
@@ -273,7 +260,7 @@
 
 #bigcard_section #bigcard .card .card-body .bottom_text {
   width: 100%;
-  height: 150px;
+  height: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,13 +304,9 @@
   border-width: 3px;
 }
 
-#bigcard_section #bigcard .card .card-body .bottom_text .btn:hover {
-  background-color: #3390ff;
-  color: white;
-}
-
 #paralax_photo {
   width: 100%;
+  height: 100vh;
   background-image: url("https://img.notorious-2019.com/68b91baf99061d49904f3e99.jpg");
   background-size: cover;
   background-position: center;
@@ -333,7 +316,7 @@
 
 #paralax_photo .smoke {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -345,10 +328,12 @@
 
 #index_aboutus {
   width: 100%;
+  height: 150vh;
 }
 
 #index_aboutus #about_title {
   width: 100%;
+  height: 30vh;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -367,16 +352,15 @@
 }
 
 #index_aboutus #about_title #sub_title {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #index_aboutus #top_aboutus {
   width: 100%;
+  height: 60vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
-  margin-bottom: 50px;
 }
 
 #index_aboutus #top_aboutus #top_photo {
@@ -401,7 +385,7 @@
 }
 
 #index_aboutus #top_aboutus .top_title #aboutus_subtitle {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #index_aboutus #top_aboutus .top_title #read_more {
@@ -421,29 +405,25 @@
 #index_aboutus #top_aboutus .top_title #read_more #plus {
   width: 20px;
   height: 20px;
-  background-image: url("/images/index/plus.png");
+  background-image: url("/image/plus.png");
   background-size: cover;
   background-position: center;
 }
 
 #index_aboutus #bottom_aboutus {
   width: 100%;
+  height: 60vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
 }
 
 #index_aboutus #bottom_aboutus #bottom_photo {
   width: 100%;
   height: 40vh;
-  background-image: url("/images/index/aboutus.jpg");
+  background-image: url("/image/aboutus.jpg");
   background-size: cover;
   background-position: center;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
 }
 
 #index_aboutus #bottom_aboutus .bottom_title #aboutus_title2 {
@@ -457,7 +437,7 @@
 }
 
 #index_aboutus #bottom_aboutus .bottom_title #aboutus_subtitle2 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #index_aboutus #bottom_aboutus .bottom_title #read_more {
@@ -482,24 +462,23 @@
 #index_aboutus #bottom_aboutus .bottom_title #read_more #plus {
   width: 20px;
   height: 20px;
-  background-image: url("/images/index/plus.png");
+  background-image: url("/image/plus.png");
   background-size: cover;
   background-position: center;
 }
 
 #all_footer {
   width: 100%;
+  height: 400px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
-  margin-top: 50px;
 }
 
 #all_footer #top_footer {
   width: 50%;
-  height: 50px;
+  height: 10%;
   background-color: #292929;
   position: absolute;
   top: -10%;
@@ -508,7 +487,7 @@
 
 #all_footer #left_footer {
   width: 50%;
-  height: 400px;
+  height: 100%;
   background-color: #292929;
   position: relative;
 }
@@ -534,21 +513,16 @@
 }
 
 #all_footer #left_footer #leftfooter_content #footer_logo {
-  width: 50%;
+  width: 40%;
   height: 100px;
-  background-image: url("/images/index/logo123.png");
-  background-size: cover;
+  background-image: url("/image/logo.jpg");
   background-position: center;
-}
-
-#all_footer #left_footer #leftfooter_content a {
-  text-decoration: none;
-  width: 50px;
+  background-size: cover;
 }
 
 #all_footer #right_footer {
   width: 50%;
-  height: 400px;
+  height: 100%;
   background-color: #1f1f1f;
   color: white;
   display: -webkit-box;
@@ -592,13 +566,13 @@
 #all_footer #right_footer #gototop #gototop_photo {
   width: 50%;
   height: 50%;
-  background-image: url("/images/index/箭頭.png");
+  background-image: url("/image/箭頭.png");
   background-size: cover;
   background-position: center;
 }
 
 #all_footer #right_footer #rightfooter_content {
-  width: 50%;
+  width: 80%;
   height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -618,17 +592,12 @@
 }
 
 #all_footer #right_footer #rightfooter_content #row_height {
-  width: 250px;
   height: 200px;
 }
 
-#all_footer #right_footer #rightfooter_content #usphoto {
-  width: 200px;
-}
-
 #all_footer #right_footer #rightfooter_content .icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 1px solid #7a7a7a;
   margin-left: 0.9vw;
@@ -637,24 +606,7 @@
   overflow: hidden;
 }
 
-#all_footer #right_footer #rightfooter_content .image {
-  background-image: url("/images/index/instagram.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 #all_footer #right_footer #rightfooter_content .image1 {
-  background-image: url("/images/index/facebook-logo.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url("");
 }
-
-#all_footer #right_footer #rightfooter_content .image2 {
-  background-image: url("/images/index/youtube.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/*# sourceMappingURL=index sass.css.map */
+/*# sourceMappingURL=主頁sass.css.map */
