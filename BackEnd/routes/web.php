@@ -26,6 +26,8 @@ Route::get('/news/Info/{id}', 'FrontController@newsInfo');
 
 Route::get('/product/cloth', 'FrontController@cloth');
 
+Route::get('/product/cloth/{id}', 'FrontController@clothInfo');
+
 Route::get('/product/sport', 'FrontController@sport');
 
 Route::get('/contacts', 'FrontController@contacts');

@@ -39,7 +39,7 @@
                     {{-- {{$cargos->productName}} --}}
 
                     <div class="card m-3 col-md-5 col-sm-12  row col-xl-3">
-                        <a href="" class="card-container ">
+                        <a href="/product/cloth/{{$cargos->id}}" class="card-container ">
                           <div class="card-container-theme">
                             <div class="product_photo">
                               <img class="product_photo" src="{{$cargos->productMainImg[0]->imageUrl}}" alt="">

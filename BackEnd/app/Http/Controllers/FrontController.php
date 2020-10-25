@@ -76,6 +76,13 @@ class FrontController extends Controller
         return view('front.product_list', compact('productclasses'));
     }
 
+    public function clothInfo($id){
+
+       $product = Product::find($id);
+    //    dd($product);
+
+        return view('front.product_list', compact('product'));
+    }
 
     public function contacts()
     {
