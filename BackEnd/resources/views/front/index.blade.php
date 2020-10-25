@@ -1,6 +1,8 @@
 @extends('layouts/front_layouts')
 
 @section('css')
+    <title>首頁</title>
+
     <link rel="stylesheet" href="/css/index/index sass.css">
     <link rel="stylesheet" href="/js/index/nav.js">
     <link rel="stylesheet" href="/css/index/rwd.css">

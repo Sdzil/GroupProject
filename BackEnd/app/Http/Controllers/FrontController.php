@@ -54,6 +54,18 @@ class FrontController extends Controller
 
     }
 
+    public function newsInfo($id)
+    {
+
+        $news = News::find($id);
+
+
+            // dd($newsList[0]->title);
+
+        return view('front.news_info', compact('news'));
+
+    }
+
 
     public function contacts()
     {

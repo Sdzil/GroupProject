@@ -2,7 +2,7 @@
 
 @section('css')
 
-
+    <title>聯絡我們</title>
     <link rel="stylesheet" href="/css/contacts/contact_us.css">
 
     <link rel="stylesheet" href="/css/contacts/rwd.css">

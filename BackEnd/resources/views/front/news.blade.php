@@ -2,6 +2,7 @@
 
 
 @section('css')
+    <title>最新消息</title>
     <link rel="stylesheet" href="/css/news/news.css">
     <link rel="stylesheet" href="/css/news/主頁sass.css">
 @endsection
@@ -63,7 +64,7 @@
                     <div class="news_info col-lg-8 d-flex margin-0_auto">
                         <div class="contain dflex flex-wrap col-11 my-auto">
                             <div class="title">
-                                <a href="/news/info/{{$news->id}}">
+                                <a href="/news/Info/{{$news->id}}">
                                     <!--news_info網址-->
                                     <p class="title_text">{{$news->title}}</p>
                                 </a>

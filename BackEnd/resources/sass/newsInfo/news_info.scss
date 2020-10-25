@@ -1,0 +1,60 @@
+$this_page: 30px;
+$breadcruch: 18px;
+$h1: 32px;
+$h2: 20px;
+$h3: 16px;
+$h4: 14px;
+
+//確認版面使用的設定(純框線圖)
+// * {
+//     background: #000 !important;
+//     color: #0f0 !important;
+//     outline: solid #f00 1px !important;
+//   }
+
+body {
+    margin: 0;
+    padding: 0;
+    .footer_block{
+        width: 100%;
+        height: 12vh;
+       
+    }
+
+    .margin-0_auto {
+        margin: 0 auto;
+    }
+    a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .col-xl-10 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .breadcrumb {
+        background-color: transparent;
+        padding-left: 0;
+    }
+
+    #bread {
+        margin: 25px 0 50px 0;
+        padding-left: 0;
+        background-color: transparent;
+    }
+    .now_page {
+        padding: 0 0 0 5px;
+        margin: 5px 0;
+        font-size: $this_page;
+    }
+    .time {
+        font-size: $h3;
+    }
+
+    .line {
+        margin: 25px auto;
+        size: 2px;
+        width: 85%;
+    }
+}
