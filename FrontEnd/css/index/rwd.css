@@ -1,0 +1,296 @@
+@media (max-width: 1280px) {
+    #index_banner #bottom_nav{
+        width: 100%;
+    }
+    #sectionmaue #leftmaue {
+        width: 100%;
+        height: 900px;
+    }
+    #sectionmaue #rightmaue {
+        width: 100%;
+    }
+    #sectionmaue #rightmaue .mauebox {
+        width: 50%;
+        height: 500px;
+    }
+    #sectioncard {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin:0;
+    }
+    #sectioncard .leftbox{
+        width: 100%;
+
+    }
+    #sectioncard .rightbox{
+        width: 100%;
+    }
+    #bigcard{
+        width: 100%;
+    }
+
+    #bigcard_section .black_decoration{
+        display: none;
+    }
+
+    #bigcard_section #bigcard{
+        width: 100%;
+
+
+    }
+    #bigcard_section #bigcard .card{
+        width: 30%;
+        height: 500px ;
+        margin-bottom:300px;
+
+
+    }
+
+
+    #all_footer #top_footer{
+        display: none;
+    }
+
+    #all_footer #left_footer{
+        width: 50%;
+    }
+
+    #all_footer #right_footer{
+        width: 50%;
+        padding-right: 0;
+        margin:0;
+        display: flex;
+        justify-content: center;
+    }
+    #all_footer #right_footer #rightfooter_content #row_height{
+        width: 300px;
+
+    }
+    #all_footer #left_footer #leftfooter_content{
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        left: 0;
+        top:150;
+    }
+    #all_footer #right_footer #rightfooter_content .icon{
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+
+
+
+@media (max-width: 960px){
+    #top_nav{
+        display: none;
+        z-index: 0;
+    }
+
+    #bottom_nav{
+        position: absolute;
+        top: 80px;
+        left: 0;
+    }
+
+    
+    #Hamburger{
+        display: block!important ;
+        
+       
+
+    }
+  
+
+
+
+
+    #all_footer{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #all_footer #top_footer{
+        display: none;
+    }
+    #all_footer #left_footer{
+        width: 100%;
+        height: 250px;
+    }
+
+    #all_footer #left_footer #leftfooter_content{
+        position: absolute;
+        top: 0;
+        left: 10%;
+        height: 100%;
+    }
+    #all_footer #left_footer #leftfooter_content #footer_logo{
+        position: absolute;
+        top:50%;
+        right: 20%;
+  
+    }
+
+    #all_footer #right_footer{
+        width: 100%;
+        height: 250px;
+        
+
+    }
+    #all_footer #right_footer h3{
+        font-size: 25px;
+    }
+
+    #all_footer #right_footer #rightfooter_content{
+        width: 100%;
+        height: 200px;
+
+    }
+    #all_footer #right_footer #rightfooter_content #row_height{
+        height: 100%;
+    }
+    #all_footer #right_footer #rightfooter_content .row{
+        margin:0;
+    }
+
+    
+}
+
+
+@media (max-width: 768px){
+
+
+
+
+    #bigcard_section #bigcard .card{
+        width: 100%;
+        height: 500px;
+        margin-bottom: 0;
+    }
+
+    #sectionmaue #rightmaue #top_maue{
+        width: 100%;
+    }
+    #sectionmaue #rightmaue #middle_maue{
+        width: 100%;
+    }
+    #sectionmaue #rightmaue #bottom_maue{
+        width: 100%;
+    }
+
+    #sectionmaue #rightmaue #top_maue #photo1{
+        width: 100%;
+        height: 500px;
+    }
+    #sectionmaue #rightmaue #middle_maue #photo2{
+        width: 100%;
+        height: 500px;
+    }
+    #sectionmaue #rightmaue #bottom_maue #photo3{
+        width: 100%;
+        height: 500px;
+    }
+    
+
+
+    #sectionmaue #rightmaue .textbox{
+        width: 100%;
+        height: 150px;
+    }
+
+
+    #all_footer #right_footer #rightfooter_content #row_height{
+        width: 100%;
+        height: 200px;
+
+    }
+
+
+
+}
+
+
+@media (max-width: 576px){
+
+    
+
+    #all_footer #left_footer #leftfooter_content .row a{
+        display: flex;
+        flex-wrap: wrap;
+        width: 30px;
+    }
+
+  
+    #all_footer #right_footer #rightfooter_content{
+        height: 100px;
+        
+    }
+
+
+    
+    #all_footer #right_footer #rightfooter_content #row_height{
+        height: 100px;
+        
+    }
+
+    #all_footer #right_footer #rightfooter_content .continer #row_height a{
+        width: 50px;
+        height: 50px;
+        
+    }
+
+    #index_banner #bottom_nav{
+        width: 350px;
+        margin-top:70px ;
+    }
+
+    #index_banner #bottom_nav .container{
+        width: 350px;
+    }
+
+    #index_banner #bottom_nav .container .row{
+        width: 350px;
+        margin: 0;
+    }
+
+    #index_banner #bottom_nav .container .row a{
+        width: 70px !important;
+        margin: 0;
+        font-size: 12px;
+    }
+
+
+    #all_footer #right_footer #rightfooter_content #row_height{
+        width: 100%;
+        height: 60px;
+
+    }
+
+    #all_footer #right_footer #rightfooter_content #usphoto{
+        font-size: 16px;
+
+    }
+
+    #all_footer #right_footer #rightfooter_content #usphoto .photo{ 
+        height: 20px;
+    }
+
+    #all_footer #right_footer #gototop{
+        font-size: 6px;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+

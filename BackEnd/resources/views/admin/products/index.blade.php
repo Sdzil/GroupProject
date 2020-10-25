@@ -127,7 +127,7 @@
             });
             //利用第三層產品類別做搜尋
             $('#productType').on('change', function() {
-                table.columns(5).search($(this).val()).draw();
+                table.columns(6).search($(this).val()).draw();
             });
         });
 

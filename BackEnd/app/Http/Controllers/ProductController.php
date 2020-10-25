@@ -411,10 +411,7 @@ class ProductController extends Controller
                         $infoImg->save();
             }
         }
-
-
         return redirect('admin/products');
-
     }
 
     /**

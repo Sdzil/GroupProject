@@ -1,0 +1,627 @@
+$grap_color: rgb(52, 52, 52);
+$darkgrap_color: rgb(31, 31, 31);
+$midgrap_color: rgb(41, 41, 41);
+$white_color: rgb(255, 255, 255);
+$word_color: rgb(155, 155, 155);
+$border_color: rgb(220, 220, 220);
+
+* {
+    font-family: "微軟正黑體";
+    
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x:hidden ;
+}
+//讓內網連結不會直接跳轉而是用滑的
+
+#index_banner {
+    width: 100%;
+    height: 100vh;
+    background-color: $grap_color;
+    color: $white_color;
+
+    #top_nav {
+        width: 100%;
+        height:50px;
+        color: $white_color;
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 99;
+        a{
+            text-decoration: none;
+        }
+
+        .container-fluid {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px white solid;
+
+
+            #nav_logo {
+                height: 100%;
+                background-image: url("/image/logo123.png");
+                background-size: cover;
+                background-position: center;
+            }
+
+            #buycar_img{
+                width: 30px;
+                height: 30px;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #nav_contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+
+            #live {
+                width: 100%;
+                height: 100%;
+                font-size: 30px;
+                color: red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .ml2 {
+                    font-weight: 900;
+                    font-size: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .ml2 .letter {
+                    display: inline-block;
+                    line-height: 1em;
+                }
+                
+            }
+        }
+    }
+
+    #bottom_nav {
+        width: 100%;
+        margin-top: 10px;
+        position: fixed;
+        top:50px;
+        left: 0;
+        z-index: 98;
+
+
+
+        .border-top {
+            width: 80%;
+            border-top-style: solid;
+            border-top-width: thick;
+            border-top-color: ghostwhite;
+        }
+
+        .middle {
+            width: 100%;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $white_color;
+        }
+
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+#sectionmaue {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    #leftmaue {
+        width: 60%;
+        background-image: url("https://img.notorious-2019.com/743ca70d7669a92766433576.jpg");
+        background-size: cover;
+        background-position: top;
+    }
+    #rightmaue {
+        width: 40%;
+        background-color: rgb(155, 155, 155);
+        overflow: hidden;
+        .mauebox {
+            width: 50%;
+            height: 300px;
+            background-color: $white_color;
+        }
+
+        .textbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+
+            .bottomline {
+                width: 25px;
+                height: 3px;
+                background-color: #b4b3b3;
+                display: block;
+            }
+            .title {
+                font-size: 1.625rem;
+                font-weight: bold;
+            }
+        }
+
+        .flow {
+            overflow: hidden;
+        }
+        .photobox {
+            transform: scale(1, 1);
+            transition: all 1s ease-out;
+        }
+        .photobox:hover {
+            transform: scale(1.2, 1.2);
+        }
+        .textbox:hover ~ .flow .photobox {
+            transform: scale(1.2, 1.2);
+        }
+
+        #top_maue {
+            width: 100%;
+            background-color: rosybrown;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        // .flow{
+        //     overflow: hidden;
+        // }
+        // .photobox{
+        //     transform:scale(1,1);
+        //     transition: all 1s ease-out;
+        // }
+        // .photobox:hover{
+        //     transform:scale(1.2,1.2);
+
+        // }
+    }
+
+    #middle_maue {
+        width: 100%;
+        background-color: royalblue;
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+
+        // .flow{
+        //     overflow: hidden;
+        // }
+        // .photobox{
+        //     transform:scale(1,1);
+        //     transition: all 1s ease-out;
+        // }
+        // .photobox:hover{
+        //     transform:scale(1.2,1.2);
+
+        // }
+    }
+    #bottom_maue {
+        width: 100%;
+        background-color: sandybrown;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+#sectioncard {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    background-color: $grap_color;
+    overflow: hidden;
+
+    .leftbox {
+        width: 60%;
+        height: 500px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .card {
+            height: 80%;
+            .card-body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .rightbox {
+        width: 40%;
+        height: 500px;
+        color: $white_color;
+        background-image: url("https://static.wixstatic.com/media/8c25ee_55209cb732b24cfa893547e9991e66aa~mv2.png/v1/fill/w_1000,h_434,al_c,usm_0.66_1.00_0.01/8c25ee_55209cb732b24cfa893547e9991e66aa~mv2.png");
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-color: $word_color;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        padding-right: 20px;
+        padding-bottom: 20px;
+
+        .photoicon {
+            width: 25%;
+            height: 5%;
+            color: $white_color;
+            display: flex;
+            justify-content: flex-end;
+            .icon {
+                width: 25px;
+                height: 25px;
+                background-image: url("/image/二頭肌123.png");
+                background-size: cover;
+                background-position: center;
+                margin-right: 10px;
+            }
+        }
+
+        .boxtitle {
+            font-size: 32px;
+        }
+        .boxtext {
+            font-size: 20px;
+        }
+    }
+}
+
+#bigcard_section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    #bigcard_title {
+        width: 100%;
+        height: 20vh;
+        font-size: 33px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .black_decoration {
+        width: 10%;
+        height: 150px;
+        background-color: black;
+        margin-top: 100px;
+    }
+
+    #bigcard {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 200px;
+
+        .card {
+            width: 30%;
+            .card-img-top {
+            height: 50%;
+            }
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .bottom_text {
+                    width: 100%;
+                    height: 150px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .card_date {
+                        font-size: 18px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .btn {
+                        width: 30%;
+                        border-radius: 50px;
+                        font-size: 20px;
+                        color: black;
+                        background-color: transparent;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-color: black;
+                        border-width: 3px;
+                    }
+                    .btn:hover{
+                        background-color: rgb(51,144,255);
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#paralax_photo {
+    width: 100%;
+
+    background-image: url("https://img.notorious-2019.com/68b91baf99061d49904f3e99.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: $white_color;
+
+    .smoke {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+    }
+}
+
+#index_aboutus {
+    width: 100%;
+    
+  
+
+    #about_title {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        #us_title {
+            font-size: 63px;
+        }
+        #sub_title {
+            font-size: 25px;
+        }
+    }
+
+    #top_aboutus {
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 50px;
+
+        #top_photo {
+            width: 100%;
+            height: 40vh;
+            background-image: url("https://img.notorious-2019.com/ad033fb07147d737144bcc71.jpg");
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+      
+
+
+        .top_title {
+            #aboutus_title1 {
+                font-size: 33px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            #aboutus_subtitle {
+                font-size: 18px;
+            }
+
+            #read_more {
+                width: 100%;
+                height: 10%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                #plus {
+                    width: 20px;
+                    height: 20px;
+                    background-image: url("/image/plus.png");
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+        }
+    }
+
+    #bottom_aboutus {
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+
+        #bottom_photo {
+            width: 100%;
+            height: 40vh;
+            background-image: url("/image/aboutus.jpg");
+            background-size: cover;
+            background-position: center;
+            transform: scale(1, 1);
+            transition: all 1s ease-out;
+        }
+
+        .bottom_title {
+            #aboutus_title2 {
+                font-size: 33px;
+                display: flex;
+                align-items: center;
+            }
+            #aboutus_subtitle2 {
+                font-size: 18px;
+            }
+
+            #read_more {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                flex-wrap: nowrap;
+                flex-direction: row;
+
+                #plus {
+                    width: 20px;
+                    height: 20px;
+                    background-image: url("/image/plus.png");
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+        }
+    }
+}
+
+#all_footer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    margin-top: 50px;
+
+    #top_footer {
+        width: 50%;
+        height: 50px;
+        background-color: $midgrap_color;
+        position: absolute;
+        top: -10%;
+        left: 0;
+    }
+    #left_footer {
+        width: 50%;
+        height: 400px;
+        background-color: $midgrap_color;
+        position: relative;
+
+        #leftfooter_content {
+            width: 80%;
+            height: 150px;
+            position: absolute;
+            right: -10%;
+            top: 150px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            color: $word_color;
+            #footer_logo {
+                width: 50%;
+                height: 100px;
+                background-image: url("/image/logo123.png");
+                background-size: cover;
+                background-position: center;
+                
+            }
+            a
+                {
+                    text-decoration: none;
+                    width: 50px;
+                }
+            
+        }
+    }
+    #right_footer {
+        width: 50%;
+        height: 400px;
+        background-color: $darkgrap_color;
+        color: $white_color;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        #right_footer a {
+            transform: 2s;
+        }
+        #gototop {
+            width: 10%;
+            height: 100px;
+            color: $word_color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            position: absolute;
+            left: 45%;
+            top: 50%;
+            #gototop_photo {
+                width: 50%;
+                height: 50%;
+                background-image: url("/image/箭頭.png");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        #rightfooter_content {
+            width: 50%;
+            height: 80%;
+            display: flex;
+            justify-content: flex-start;
+            color: $word_color;
+            padding-right: 150px;
+            flex-direction: column;
+            align-items: flex-start;
+
+            #row_height {
+                width: 250px;
+                height: 200px;
+            }
+            #usphoto{
+                width: 200px;
+            }
+            .icon {
+                // width: 5%;
+                // height: 30%;
+              width: 40px;
+              height: 40px;
+                
+                border-radius:50%;
+                border: 1px solid #7a7a7a;
+                margin-left: 0.9vw;
+                transition: 0.5s;
+                overflow: hidden;
+            }
+            .image{
+                background-image: url("/image/instagram.png");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .image1 {
+                background-image: url("/image/facebook-logo.png");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .image2 {
+                background-image: url("/image/youtube.png");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+        }
+    }
+}
+
+
+
+
+
