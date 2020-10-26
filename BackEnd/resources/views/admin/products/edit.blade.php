@@ -139,6 +139,7 @@
                     <img width="200" src="{{ $product->productMainImg[0]->imageUrl }}" alt="" srcset="">
                     <label for="mainImageurl_0">主視覺圖<small class="text-danger">(如要修改請直接上傳圖片)</small></label>
                     <input name="mainImageurl_0" type="file" class="form-control-file mb-3" id="mainImageurl_0">
+                    <div class="row">
                     @if (sizeof($product->productMainImg) >= 1)
                         @if ($product->productMainImg[0]->productInfoImg)
 
@@ -150,6 +151,8 @@
                         @endforeach
                     @endif
                     @endif
+
+                        </div>
                     <label for="infoImageurl_0">商品內頁組圖(如要修改請直接上傳圖片，可選多張)</label>
                     <input name="infoImageurl_0[]" multiple type="file" class="form-control-file" id="infoImageurl_0">
                 </div>

@@ -163,6 +163,7 @@ class ProductController extends Controller
                         //多張圖片作為陣列處理
                         foreach ($files as $file) {
                             //圖片路徑處理
+                            
                             $path = $this->fileUpload($file,'infoImgs');
                             //新增資料進DB
                             $infoImg = new ProductInfoImg;

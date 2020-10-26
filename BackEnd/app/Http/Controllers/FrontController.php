@@ -81,7 +81,7 @@ class FrontController extends Controller
        $product = Product::find($id);
     //    dd($product);
 
-        return view('front.product_list', compact('product'));
+        return view('front.product_info', compact('product'));
     }
 
     public function sport(){
@@ -91,6 +91,15 @@ class FrontController extends Controller
 
         return view('front.product_list', compact('productclasses'));
     }
+
+    public function sportInfo($id){
+
+        $product = Product::find($id);
+     //    dd($product);
+
+         return view('front.product_list', compact('product'));
+     }
+
 
 
     public function contacts()

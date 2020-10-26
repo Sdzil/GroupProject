@@ -1,0 +1,278 @@
+body{
+    margin: 0;
+    height: 100%;
+   
+}
+
+html{
+
+    height: 100%;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 20px 0;
+    margin: 0 0 0 15px;
+}
+
+
+.swiper-container {
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .swiper-slide {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .gallery-top {
+    height: 100%;
+    width: 100%;
+  }
+  .gallery-thumbs {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    
+  }
+  .gallery-thumbs .swiper-slide {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+  }
+  .gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-button-next.swiper-button-white, .swiper-button-prev.swiper-button-white {
+    --swiper-navigation-color: black;
+}
+
+  .top-high{
+   
+    height: 550px;
+  }
+
+  .bot-high{
+    height: 100px;
+  }
+
+  .leftside{
+    height: 550px;
+    background-color: rgba(233, 232, 232, 0.705);
+  }
+  .sub_title{
+    font-size: 14px;
+    color: #918f8f;
+  }
+
+  .title{
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .price{
+    font-size: 14px;
+  }
+
+  .text{
+    width: 100%;
+    height:120px ;
+    color: rgb(120, 120, 120);
+    font-size: 14px;
+  }
+
+  .btn-coumston{
+    background-size: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50%;
+    &:hover{
+      border: 2px solid black;
+    }
+  }
+
+  //size-select
+  #size-choose{
+    height: 50px;
+    font-size: 25px;
+  }
+
+  .cloth-spinner{
+    height: 50px;
+    background-color: yellow;
+  }
+
+  .add-cart{
+    height: 50px;
+    text-align: center;
+    background-color: rgb(46, 44, 44);
+    color: white;
+    line-height: 50px;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-size: 24px;
+   
+    &:hover{
+      background-color: gray;
+      color: rgb(32, 31, 31);
+      font-weight: 600;
+    }
+  }
+
+
+// 商品詳細
+#myTab{
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  border-bottom: 2px solid black;
+}
+
+//spinner
+.ui-widget.ui-widget-content {
+  border: 1px solid #000000 !important;
+}
+
+#spinner{
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 10px;
+  font-size: 20px !important;
+  height: 50px !important;
+
+}
+
+
+
+
+  // lightbox
+  .close {
+    position: absolute;
+    right: 4%;
+    top: 1%;
+    border: white 2px solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background: gray;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 40px;
+  }
+  
+  .close::after {
+    position: absolute;
+    top: -9%;
+    left: 25%;
+    content: 'x';
+    color: white;
+  }
+
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    &:hover{
+      color: #CCC;
+      background-color: rgb(54, 54, 54);
+    }
+
+    
+  }
+
+  .portfolio{
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .portfolio-lightbox {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 150ms ease-in-out;
+    transition: -webkit-transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.25);
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  .portfolio-lightbox:target {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  
+  .portfolio-lightbox__content {
+    background: white;
+    border: 1px solid black;
+    
+    border-radius: 10px;
+    height: 100vh;
+    overflow: scroll;
+  }
+  .portfolio-lightbox:target {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  
+  .portfolio-lightbox__content {
+    background: white;
+    border: 1px solid black;
+    position: relative;
+    border-radius: 10px;
+    img{
+      width: 100%;
+    }
+    
+  }
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+ 

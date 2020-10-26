@@ -30,6 +30,8 @@ Route::get('/product/cloth/{id}', 'FrontController@clothInfo');
 
 Route::get('/product/sport', 'FrontController@sport');
 
+Route::get('/product/sport/{id}', 'FrontController@sportInfo');
+
 Route::get('/contacts', 'FrontController@contacts');
 
 Route::post('/contacts/store', 'FrontController@contacts_store');
