@@ -59,7 +59,7 @@
                               </div>
                             <div class="product_info-item brand_name">惡名昭彰</div>
                               <div class="product_info-item product_name">{{$cargos->productName}}</div>
-                              <div class="product_info-item product_price">{{$cargos->price}}</div>
+                              <div class="product_info-item product_price">${{$cargos->price}}</div>
                             </div>
                           </div>
                         </a>

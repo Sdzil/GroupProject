@@ -1,0 +1,391 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.fullbox {
+  width: 100%;
+}
+
+.whitecolor {
+  color: #9b9b9b;
+  text-align: center;
+  font-family: "微軟正黑體";
+  font-weight: 900;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+#contact_nav #contact_banner {
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#contact_nav #contact_banner .left_banner {
+  width: 45%;
+  height: 100%;
+  background-image: url("/素材/banner_img.jpg");
+  background-size: cover;
+}
+
+#contact_nav #contact_banner .right_banner {
+  width: 50%;
+  height: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 100px;
+}
+
+#contact_us {
+  width: 100%;
+  background: #343434;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "微軟正黑體";
+}
+
+#contact_us #about_us {
+  width: 45%;
+  height: 100%;
+  background-color: #1f1f1f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 20px;
+  line-height: 150px;
+}
+
+#contact_us #contact_card {
+  width: 55%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#contact_us #contact_card #contact_title {
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+#contact_us #contact_card #contact_detail {
+  width: 100%;
+  margin: 100px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#contact_us #contact_card #name_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #name_input #yourname {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#contact_us #contact_card #contact_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #contact_input #yourphone {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#contact_us #contact_card #address_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #address_input #youraddress {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#contact_us #contact_card #email_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #email_input #youremail {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#contact_us #contact_card #problem_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #problem_input #yourproblem {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#contact_us #contact_card #talk_input {
+  width: 100%;
+}
+
+#contact_us #contact_card #talk_input #yourtalk {
+  width: 100%;
+  height: 40px;
+  background-color: #343434;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+
+#all_footer {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+#all_footer #top_footer {
+  width: 50%;
+  height: 50px;
+  background-color: #292929;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+#all_footer #left_footer {
+  width: 50%;
+  height: 400px;
+  background-color: #292929;
+  position: relative;
+}
+
+#all_footer #left_footer #leftfooter_content {
+  width: 80%;
+  height: 150px;
+  position: absolute;
+  right: -10%;
+  top: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #9b9b9b;
+}
+
+#all_footer #left_footer #leftfooter_content #footer_logo {
+  width: 50%;
+  height: 100px;
+  background-image: url("/image/logo123.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#all_footer #left_footer #leftfooter_content a {
+  text-decoration: none;
+  width: 50px;
+}
+
+#all_footer #right_footer {
+  width: 50%;
+  height: 400px;
+  background-color: #1f1f1f;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#all_footer #right_footer #right_footer a {
+  -webkit-transform: 2s;
+          transform: 2s;
+}
+
+#all_footer #right_footer #gototop {
+  width: 10%;
+  height: 100px;
+  color: #9b9b9b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+}
+
+#all_footer #right_footer #gototop #gototop_photo {
+  width: 50%;
+  height: 50%;
+  background-image: url("/image/箭頭.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#all_footer #right_footer #rightfooter_content {
+  width: 50%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  color: #9b9b9b;
+  padding-right: 150px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#all_footer #right_footer #rightfooter_content #row_height {
+  width: 250px;
+  height: 200px;
+}
+
+#all_footer #right_footer #rightfooter_content #usphoto {
+  width: 200px;
+}
+
+#all_footer #right_footer #rightfooter_content .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #7a7a7a;
+  margin-left: 0.9vw;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+#all_footer #right_footer #rightfooter_content .image {
+  background-image: url("/image/instagram.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#all_footer #right_footer #rightfooter_content .image1 {
+  background-image: url("/image/facebook-logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#all_footer #right_footer #rightfooter_content .image2 {
+  background-image: url("/image/youtube.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=contact_us.css.map */

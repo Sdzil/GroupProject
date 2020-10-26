@@ -1,144 +1,6 @@
-@charset "UTF-8";
-* {
-  font-family: "微軟正黑體";
-}
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
 
-#index_banner {
-  width: 100%;
-  height: 100px;
-  background-color: #343434;
-  color: white;
-}
-
-#index_banner #top_nav {
-  width: 100%;
-  height: 50px;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
-
-#index_banner #top_nav a {
-  text-decoration: none;
-}
-
-#index_banner #top_nav .container-fluid {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px white solid;
-}
-
-#index_banner #top_nav .container-fluid #nav_logo {
-  height: 100%;
-  background-image: url("/images/index/logo123.png");
-  background-size: cover;
-  background-position: center;
-}
-
-#index_banner #top_nav .container-fluid #buycar_img {
-  width: 30px;
-  height: 30px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#index_banner #top_nav .container-fluid #nav_contact {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#index_banner #top_nav .container-fluid #live {
-  width: 100%;
-  height: 100%;
-  font-size: 30px;
-  color: red;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#index_banner #top_nav .container-fluid #live .ml2 {
-  font-weight: 900;
-  font-size: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#index_banner #top_nav .container-fluid #live .ml2 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-#index_banner #bottom_nav {
-  width: 100%;
-  /* margin-top: 10px; */
-  position: fixed;
-  /* line-height: 50px; */
-  top: 50px;
-  left: 0;
-  z-index: 98;
-}
-
-#index_banner #bottom_nav .border-top {
-  width: 80%;
-  border-top-style: solid;
-  border-top-width: thick;
-  border-top-color: ghostwhite;
-}
-
-#index_banner #bottom_nav .middle {
-  width: 100%;
-  height: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-}
-
-#index_banner #bottom_nav a {
-  text-decoration: none;
-}
-
-#sectionmaue {
+#sectionmune {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -148,26 +10,26 @@ html {
   overflow: hidden;
 }
 
-#sectionmaue #leftmaue {
+#sectionmune #leftmune {
   width: 60%;
   background-image: url("https://img.notorious-2019.com/743ca70d7669a92766433576.jpg");
   background-size: cover;
   background-position: top;
 }
 
-#sectionmaue #rightmaue {
+#sectionmune #rightmune {
   width: 40%;
   background-color: #9b9b9b;
   overflow: hidden;
 }
 
-#sectionmaue #rightmaue .mauebox {
+#sectionmune #rightmune .munebox {
   width: 50%;
   height: 300px;
   background-color: white;
 }
 
-#sectionmaue #rightmaue .textbox {
+#sectionmune #rightmune .textbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -184,40 +46,40 @@ html {
   overflow: hidden;
 }
 
-#sectionmaue #rightmaue .textbox .bottomline {
+#sectionmune #rightmune .textbox .bottomline {
   width: 25px;
   height: 3px;
   background-color: #b4b3b3;
   display: block;
 }
 
-#sectionmaue #rightmaue .textbox .title {
+#sectionmune #rightmune .textbox .title {
   font-size: 1.625rem;
   font-weight: bold;
 }
 
-#sectionmaue #rightmaue .flow {
+#sectionmune #rightmune .flow {
   overflow: hidden;
 }
 
-#sectionmaue #rightmaue .photobox {
+#sectionmune #rightmune .photobox {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
 
-#sectionmaue #rightmaue .photobox:hover {
+#sectionmune #rightmune .photobox:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
 
-#sectionmaue #rightmaue .textbox:hover ~ .flow .photobox {
+#sectionmune #rightmune .textbox:hover ~ .flow .photobox {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
 
-#sectionmaue #rightmaue #top_maue {
+#sectionmune #rightmune #top_mune {
   width: 100%;
   background-color: rosybrown;
   display: -webkit-box;
@@ -227,7 +89,7 @@ html {
       flex-wrap: wrap;
 }
 
-#sectionmaue #middle_maue {
+#sectionmune #middle_mune {
   width: 100%;
   background-color: royalblue;
   display: -webkit-box;
@@ -241,7 +103,7 @@ html {
       flex-wrap: wrap;
 }
 
-#sectionmaue #bottom_maue {
+#sectionmune #bottom_mune {
   width: 100%;
   background-color: sandybrown;
   display: -webkit-box;
@@ -420,7 +282,7 @@ html {
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: flex-end;
+          align-items: center;
 }
 
 #bigcard_section #bigcard .card .card-body .bottom_text .card_date {

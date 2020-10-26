@@ -4,9 +4,19 @@
     <title>首頁</title>
 
     <link rel="stylesheet" href="/css/index/index sass.css">
+    {{-- <link rel="stylesheet" href="/js/index/nav.js"> --}}
+    <link rel="stylesheet" href="/css/index/rwd.css">
+    <link rel="stylesheet" href="/css/index/nav.css">
+
+
+
+    {{-- <link rel="stylesheet" href="/css/index/index sass.css">
     <link rel="stylesheet" href="/js/index/nav.js">
     <link rel="stylesheet" href="/css/index/rwd.css">
     <link rel="stylesheet" href="/css/index/nav.css">
+    <link rel="stylesheet" href="/css/index/lightbox.css">
+    <link rel="stylesheet" href="/js/index/lightbox.js"> --}}
+
 
     {{-- AoS --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -53,13 +63,13 @@
     </div>
 
     <div id="section_1">
-        <div id="sectionmune">
-            <div id="leftmune" data-aos="fade-right">
+        <div id="sectionmaue">
+            <div id="leftmaue" data-aos="fade-right">
 
             </div>
-            <div id="rightmune">
-                <div id="top_mune" data-aos="fade-left">
-                    <div id="lasthover" class="munebox textbox">
+            <div id="rightmaue">
+                <div id="top_maue" data-aos="fade-left">
+                    <div id="lasthover" class="mauebox textbox">
                         <p class="title">
                         {{$product[0]->className}}
                         </p>
@@ -69,15 +79,15 @@
                             最時尚潮流的穿搭
                         </p>
                     </div>
-                    <div id="photo1" class="munebox flow">
+                    <div id="photo1" class="mauebox flow">
                         <img class="photobox" src="{{$product[0]->productType[0]->product[0]->productMainImg[0]->imageUrl}}" alt=""
                             width="100%" height="100%">
 
                     </div>
                 </div>
-                <div id="middle_mune" data-aos="fade-right">
+                <div id="middle_maue" data-aos="fade-right">
 
-                    <div class="munebox textbox">
+                    <div class="mauebox textbox">
                         <p class="title">
                             {{$product[1]->className}}
                         </p>
@@ -87,13 +97,13 @@
                             最時尚潮流的穿搭
                         </p>
                     </div>
-                    <div id="photo2" class="munebox flow">
+                    <div id="photo2" class="mauebox flow">
                         <img class="photobox" src="{{$product[1]->productType[0]->product[0]->productMainImg[0]->imageUrl}}" alt=""
                             width="100%" height="100%">
                     </div>
                 </div>
-                <div id="bottom_mune" data-aos="fade-left">
-                    <div class="munebox textbox">
+                <div id="bottom_maue" data-aos="fade-left">
+                    <div class="mauebox textbox">
                         <p class="title">
                             {{$product[2]->className}}
                         </p>
@@ -103,7 +113,7 @@
                             最時尚潮流的穿搭
                         </p>
                     </div>
-                    <div id="photo3" class="munebox flow">
+                    <div id="photo3" class="mauebox flow">
                         <img class="photobox" src="{{$product[2]->productType[0]->product[0]->productMainImg[0]->imageUrl}}" alt=""
                             width="100%" height="100%">
                     </div>
@@ -121,7 +131,7 @@
                     <img src="{{$sport[0]->productMainImg[0]->imageUrl}}"
                         class="card-img-top width=100% height=100%" alt="...">
                     <div class="card-body">
-                        <p class="card-text">{{$sport[0]->content}}</p>
+                        <p class="card-text JQ">{{$sport[0]->content}}</p>
                     </div>
 
                 </div>
@@ -130,14 +140,14 @@
 
                     <div class="card-body">
 
-                        <p class="card-text">{{$sport[1]->content}}</p>
+                        <p class="card-text JQ">{{$sport[1]->content}}</p>
                     </div>
 
                 </div>
                 <div class="card" style="width: 18rem;">
                     <img src="{{$sport[2]->productMainImg[0]->imageUrl}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">{{$sport[2]->content}}</p>
+                        <p class="card-text JQ">{{$sport[2]->content}}</p>
                     </div>
 
                 </div>
@@ -172,8 +182,8 @@
                 <img src=@if($news[0]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[0]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{$news[0]->title}}</h5>
-                        <p class="card-text overflow-hidden">{{$news[0]->content}}</p>
-                        <div class="bottom_text">
+                        <p class="card-text JQ">{{$news[0]->content}}</p>
+                        <div class="bottom_text ">
                             <div class="card_date">{{$news[0]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
                         </div>
@@ -183,7 +193,7 @@
                     <img src=@if($news[1]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[1]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$news[1]->title}}</h5>
-                        <p class="card-text overflow-hidden">{{$news[1]->content}}</p>
+                        <p class="card-text JQ">{{$news[1]->content}}</p>
                         <div class="bottom_text">
                             <div class="card_date">{{$news[1]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
@@ -194,7 +204,7 @@
                     <img src=@if($news[2]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[2]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$news[2]->title}}</h5>
-                        <p class="card-text overflow-hidden">{{$news[2]->content}}</p>
+                        <p class="card-text JQ">{{$news[2]->content}}</p>
                         <div class="bottom_text">
                             <div class="card_date">{{$news[2]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
@@ -303,11 +313,14 @@
 
     {{-- Anime --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="/js/index/nav.js"></script>
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> --}}
 
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
                     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
 
-    <script src="./js/nav.js"></script>
+    {{-- <script src="./js/nav.js"></script> --}}
 
     {{-- Swiper --}}
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>

@@ -7,7 +7,7 @@ $border_color: rgb(220, 220, 220);
 
 * {
     font-family: "微軟正黑體";
-    
+
 }
 
 html {
@@ -60,7 +60,7 @@ html {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                
+
             }
 
             #live {
@@ -83,7 +83,7 @@ html {
                     display: inline-block;
                     line-height: 1em;
                 }
-                
+
             }
         }
     }
@@ -120,23 +120,23 @@ html {
     }
 }
 
-#sectionmaue {
+#sectionmune {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
 
-    #leftmaue {
+    #leftmune {
         width: 60%;
         background-image: url("https://img.notorious-2019.com/743ca70d7669a92766433576.jpg");
         background-size: cover;
         background-position: top;
     }
-    #rightmaue {
+    #rightmune {
         width: 40%;
         background-color: rgb(155, 155, 155);
         overflow: hidden;
-        .mauebox {
+        .munebox {
             width: 50%;
             height: 300px;
             background-color: $white_color;
@@ -175,7 +175,7 @@ html {
             transform: scale(1.2, 1.2);
         }
 
-        #top_maue {
+        #top_mune {
             width: 100%;
             background-color: rosybrown;
             display: flex;
@@ -195,7 +195,7 @@ html {
         // }
     }
 
-    #middle_maue {
+    #middle_mune {
         width: 100%;
         background-color: royalblue;
         display: flex;
@@ -214,7 +214,7 @@ html {
 
         // }
     }
-    #bottom_maue {
+    #bottom_mune {
         width: 100%;
         background-color: sandybrown;
         display: flex;
@@ -382,8 +382,8 @@ html {
 
 #index_aboutus {
     width: 100%;
-    
-  
+
+
 
     #about_title {
         width: 100%;
@@ -412,10 +412,10 @@ html {
             background-image: url("https://img.notorious-2019.com/ad033fb07147d737144bcc71.jpg");
             background-size: cover;
             background-position: center;
-            
+
         }
 
-      
+
 
 
         .top_title {
@@ -529,14 +529,14 @@ html {
                 background-image: url("/image/logo123.png");
                 background-size: cover;
                 background-position: center;
-                
+
             }
             a
                 {
                     text-decoration: none;
                     width: 50px;
                 }
-            
+
         }
     }
     #right_footer {
@@ -591,7 +591,7 @@ html {
                 // height: 30%;
               width: 40px;
               height: 40px;
-                
+
                 border-radius:50%;
                 border: 1px solid #7a7a7a;
                 margin-left: 0.9vw;
@@ -616,7 +616,7 @@ html {
                 background-position: center;
                 background-repeat: no-repeat;
             }
-            
+
         }
     }
 }

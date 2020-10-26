@@ -49,9 +49,11 @@
         </div>
     </div>
     <!--消息卡片-->
+
     <div class="dashboard dflex margin-0_auto flex-wrap">
+        @foreach ($newsList as $news)
         <div class="card col-md-11 col-lg-10 margin-0_auto ">
-            @foreach ($newsList as $news)
+
                 <div class="card_container d-flex flex-wrap col-12 margin-0_auto">
                     <div class="news_photo col-10 col-lg-3 my-auto">
                         <a href="" class=" d-flex "><img class="photo" src=@if($news->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news->listImageUrl}} @endif alt="">
@@ -78,8 +80,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+
         </div>
+        @endforeach
     </div>
 </div>
 

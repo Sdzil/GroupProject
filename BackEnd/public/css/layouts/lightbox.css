@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.button-member {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.portfolio {
+  list-style: none;
+}
+
+.portfolio a {
+  text-decoration: none;
+}
+
+.portfolio a:hover {
+  color: #cccccc;
+}
+
+.button-registered {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button-forgotpsw {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.portfolio-lightbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.portfolio-lightbox:target {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.portfolio-lightbox__content {
+  background: white;
+  border: 1px solid black;
+  position: relative;
+  border-radius: 10px;
+}
+
+.portfolio__title {
+  text-align: center;
+  padding: 10px 0;
+  color: black;
+}
+
+.close {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  border: white 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background: gray;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+.close::after {
+  position: absolute;
+  top: 2%;
+  left: 32%;
+  content: 'x';
+  color: white;
+}
+
+.help-block {
+  color: red;
+}
+/*# sourceMappingURL=lightbox.css.map */

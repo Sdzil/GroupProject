@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/layouts/layouts.css">
     <link rel="stylesheet" href="/css/layouts/nav.css">
     <link rel="stylesheet" href="/css/layouts/rwd.css">
+    <link rel="stylesheet" href="/css/layouts/lightbox.css">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -29,7 +30,7 @@
                 <div class="container-fluid">
 
                     <div id="member" class="col-1 col-1 text_dis text-nowrap">
-                        <a href="" style="color:white">會員登入</a>
+                        <a href="#portfolio-member" style="color:white">會員登入</a>
                     </div>
                     <div id="nav_logo" class="col-2 offset-xl-4 offset-lg-2"></div>
                     <div id="buycar" class="col-1 offset-xl-1">
@@ -68,7 +69,7 @@
                   but hey, it's pure CSS magic.
                   -->
                     <ul id="menu">
-                        <a href="#">
+                        <a href="#portfolio-member">
                             <li>會員登入</li>
                         </a>
                         <a href="/contacts">
@@ -96,10 +97,10 @@
                             <a href="/news" style="color:white">最新消息</a>
                         </div>
                         <div class="col-3 middle">
-                            <a href="" style="color:white">流行服飾</a>
+                            <a href="/product/cloth" style="color:white">流行服飾</a>
                         </div>
                         <div class="col-3 middle">
-                            <a href="" style="color:white">運動保健</a>
+                            <a href="/product/sport" style="color:white">運動保健</a>
                         </div>
                     </div>
                 </div>
@@ -179,6 +180,142 @@
     </footer>
 
 
+    <!-- LightBox -->
+    <!-- 會員登入畫面 -->
+    <div class="portfolio-lightbox" id="portfolio-member">
+        <div class="portfolio-lightbox__content  col-lg-5 col-md-8 col-sm-8 col-xs-10">
+            <a href="#portfolio" class="close"></a>
+            <h3 class="portfolio__title">會員登入</h3>
+            <p class="portfolio__body">
+            <div class="login-form">
+                <form action="login.aspx" class="form-horizontal" method="post" onsubmit="return checkadd();">
+                    <input type="hidden" name="act" value="act_login">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="email" name="login_email" class="form-control" id="login_email"
+                                placeholder="請輸入帳號(Email)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" name="login_pwd" class="form-control" id="login_pwd"
+                                placeholder="請輸入密碼">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class=" col-sm text-left ml-3">
+                            <a href="#portfolio-registered" class="button-registered" role="button"
+                                title="註冊帳號">註冊帳號</a>
+                        </div>
+                        <div class=" col-sm text-right mr-3">
+                            <a href="#portfolio-forgotpsw" class="button-forgotpsw" role="button" title="忘記密碼">忘記密碼?</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-dark btn-default btn-lg col-md-12 ">登入</button>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="button" id="fb_login"
+                        class="btn btn-primary btn-lg col-md-12 ">使用facebook帳號登入</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <a href="/google.aspx"><button type="button"
+                            class="btn btn-danger btn-lg  col-md-12">使用google帳號登入</button></a>
+                </div>
+            </div>
+            </form>
+        </div>
+        </p>
+    </div>
+    </div>
+    <!-- 忘記密碼畫面 -->
+    <div class="portfolio-lightbox" id="portfolio-forgotpsw">
+        <div class="portfolio-lightbox__content  col-lg-5 col-md-8 col-sm-8 col-xs-10">
+            <a href="#portfolio" class="close"></a>
+            <h3 class="portfolio__title ">忘記密碼</h3>
+            <p class="portfolio__body">
+            <div class="container">
+                <div class="login">
+                    <form action="login.aspx" class="form-horizontal" method="post" onsubmit="return checkadd()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="forgot_email" placeholder="請輸入信箱(email)"">
+                                        <hr>
+                                        <p class=" form-control " style=" border: 0px; padding:
+                                0px;">請您輸入註冊時的E-mail帳號，我們將寄送密碼至您的信箱。</p>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit"
+                                        class="btn btn-dark btn-default btn-lg col-md-12 ">發送信件</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            </p>
+        </div>
+    </div>
+    <!-- 會員註冊畫面 -->
+
+    <div class="portfolio-lightbox" id="portfolio-registered">
+        <div class="portfolio-lightbox__content  col-lg-5 col-md-8 col-sm-8 col-xs-10">
+            <a href="#portfolio" class="close"></a>
+            <h3 class="portfolio__title ">會員註冊</h3>
+            <p class="portfolio__body">
+            <div class="container">
+                <div class="login">
+                    <form action="login.aspx" class="form-horizontal" method="post" onsubmit="return checkadd()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="registered_email" placeholder="信箱">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="registered_name" placeholder="姓名"">
+                                    </div>
+                                    <div class=" form-group">
+                            <input type="password" class="form-control" name="password" placeholder="密碼">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="new_password" placeholder="請再次輸入密碼">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" name="submit" id="submit"
+                                    class="btn btn-dark btn-default btn-lg col-md-12">立即註冊</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="button" id="fb_login"
+                                    class="btn btn-primary btn-lg col-md-12 ">使用facebook帳號登入</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a href="/google.aspx"><button type="button"
+                                        class="btn btn-danger btn-lg  col-md-12">使用google帳號登入</button></a>
+                    </form>
+                </div>
+            </div>
+            </p>
+        </div>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -191,6 +328,13 @@
 
     {{-- Anime --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    {{-- <script src="/js/index/lightbox.js"></script> --}}
+
+    <!-- 表單驗證 -->
+    <script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+
+    <script src="/js/index/lightbox.js"></script>
 
 
     @yield('js')

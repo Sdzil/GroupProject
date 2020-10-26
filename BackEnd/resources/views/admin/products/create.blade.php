@@ -71,8 +71,8 @@
                 --}}
             {{-- </div> --}}
             <hr>
-            <div class="form-group" id="spec">
-                {{-- <div class="d-flex">
+            {{-- <div class="form-group" id="spec">
+                <div class="d-flex">
                     <a id="spec_btn_add" href="#spec" type="button" class="btn btn-success mx-1">新增一組規格</a>
                     <a id="spec_btn_delete" href="#spec" type="button" class="btn btn-danger mx-1">刪除一組規格</a>
                 </div> --}}

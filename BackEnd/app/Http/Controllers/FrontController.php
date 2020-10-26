@@ -84,6 +84,15 @@ class FrontController extends Controller
         return view('front.product_list', compact('product'));
     }
 
+    public function sport(){
+
+        $productclasses = ProductMainClass::find(2)->productClass->all();
+        // dd($productclasses[0]->productType[0]->product[0]->productMainImg[0]->imageUrl);
+
+        return view('front.product_list', compact('productclasses'));
+    }
+
+
     public function contacts()
     {
 
