@@ -187,8 +187,10 @@
             <a href="#portfolio" class="close"></a>
             <h3 class="portfolio__title">會員登入</h3>
             <p class="portfolio__body">
+                {{-- <a href="{{ route('login') }}">Login</a> --}}
             <div class="login-form">
-                <form action="login.aspx" class="form-horizontal" method="post" onsubmit="return checkadd();">
+                {{-- <form action="{{ route('login') }}" class="form-horizontal" method="POST">
+                    @csrf
                     <input type="hidden" name="act" value="act_login">
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -212,13 +214,74 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-dark btn-default btn-lg col-md-12 ">登入</button>
+                        </div>
+                    </div>
+                </Form> --}}
 
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" placeholder="請輸入帳號(Email)" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password" placeholder="請輸入密碼" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            {{-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}記住我
+                                </label>
+                            </div> --}}
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-8 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{-- {{ __('Login') }} --}}
+                                登入
+                            </button>
+
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-dark btn-default btn-lg col-md-12 ">登入</button>
-                </div>
-            </div>
+
+
             <hr>
             <div class="form-group">
                 <div class="col-sm-12">
@@ -277,14 +340,16 @@
             <p class="portfolio__body">
             <div class="container">
                 <div class="login">
-                    <form action="login.aspx" class="form-horizontal" method="post" onsubmit="return checkadd()">
+                    <form action="{{ route('login') }}" class="form-horizontal" method="POST"
+                        onsubmit="return checkadd()">
+                        @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" name="registered_email" placeholder="信箱">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="registered_name" placeholder="姓名"">
-                                    </div>
-                                    <div class=" form-group">
+                            <input type="text" class="form-control" name="registered_name" placeholder="姓名">
+                        </div>
+                        <div class=" form-group">
                             <input type="password" class="form-control" name="password" placeholder="密碼">
                         </div>
                         <div class="form-group">
@@ -316,28 +381,29 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
 
-    {{-- Anime --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        {{-- Anime --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-    {{-- <script src="/js/index/lightbox.js"></script> --}}
+        {{-- <script src="/js/index/lightbox.js"></script>
+        --}}
 
-    <!-- 表單驗證 -->
-    <script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+        <!-- 表單驗證 -->
+        <script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
 
-    <script src="/js/index/lightbox.js"></script>
+        <script src="/js/index/lightbox.js"></script>
 
 
-    @yield('js')
+        @yield('js')
 
 
 </body>

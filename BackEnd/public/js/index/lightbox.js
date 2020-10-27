@@ -1,5 +1,5 @@
 
-            
+
                 $(function () {
                 $('form').bootstrapValidator({
                     message: 'This value is not valid',
@@ -15,23 +15,25 @@
                                 notEmpty: {
                                     message: '信箱不能爲空'
                                 },
-                              
+
                                 regexp: {
                                     regexp:  /^([-.-_A-Za-z0-9])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
+                                    // regexp:  /^([-.-_A-Za-z0-9])+@([a-zA-Z0-9_-])$/,
                                     message: '信箱格式錯誤'
                                 }
                             }
                         },
-                        
+
                         registered_email: {
                             message: '信箱不能為空',
                             validators: {
                                 notEmpty: {
                                     message: '信箱不能爲空'
                                 },
-                              
+
                                 regexp: {
                                     regexp:  /^([-.-_A-Za-z0-9])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
+                                    // regexp:  /^([-.-_A-Za-z0-9])+@([a-zA-Z0-9_-])$/,
                                     message: '信箱格式錯誤'
                                 }
                             }
@@ -46,7 +48,7 @@
                                 max: 10,
                                 message: '請輸入2字以上的姓名'
                              }
-                            
+
                          }
                         },
                         password: {
@@ -66,8 +68,8 @@
                                 identical:{
                                     field:'new_password',
                                     message:' '
-    
-                                }  
+
+                                }
                             }
                         },
                         new_password: {
@@ -75,16 +77,16 @@
                                 notEmpty: {
                                  message: '密碼不能爲空'
                                  },
-                              
+
                                 identical:{
                                     field:'password',
                                     message:'密碼輸入不一致'
-                                }  
+                                }
                             }
                         }
                     }
                 });
-                
+
                 $("#submit").on("click", function(){
                     $("form").bootstrapValidator('validate');
                     if($("form").data('bootstrapValidator').isValid()){
@@ -92,4 +94,3 @@
                     }
             });
             });
-   
