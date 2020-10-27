@@ -38,7 +38,7 @@
     <div id="section2">
         <div class="news_text
             col-sm-12 col-md-11 col-lg-10 margin-0_auto">
-            {{$news->content}}
+            {!!$news->content!!}
             <br>
             <img width="80%" src="{{$news->infoImageUrl}}" alt="" srcset="">
 

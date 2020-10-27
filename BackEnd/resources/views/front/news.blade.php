@@ -75,7 +75,7 @@
                                 {{$news->date}}
                             </div>
                             <div class="info ">
-                            <p class="JQ ellipsis">{{$news->content}}</p>
+                            <p class="JQ ellipsis">{!!$news->content!!}</p>
                             </div>
                         </div>
                     </div>

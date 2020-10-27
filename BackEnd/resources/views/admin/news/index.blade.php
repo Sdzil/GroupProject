@@ -32,7 +32,7 @@
                                 @foreach ($newsList as $news)
                                     <tr>
                                         <td>{{ $news->title }}</td>
-                                        <td>{{ $news->content }}</td>
+                                        <td>{!! $news->content !!}</td>
                                         <td>
                                             @if ($news->listImageUrl == null)
                                                 <img height="100" src='/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' alt="">

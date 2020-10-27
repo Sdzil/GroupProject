@@ -182,7 +182,7 @@
                 <img src=@if($news[0]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[0]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{$news[0]->title}}</h5>
-                        <p class="card-text JQ">{{$news[0]->content}}</p>
+                        <p class="card-text JQ">{!!$news[0]->content!!}</p>
                         <div class="bottom_text ">
                             <div class="card_date">{{$news[0]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
@@ -193,7 +193,7 @@
                     <img src=@if($news[1]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[1]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$news[1]->title}}</h5>
-                        <p class="card-text JQ">{{$news[1]->content}}</p>
+                        <p class="card-text JQ">{!!$news[1]->content!!}</p>
                         <div class="bottom_text">
                             <div class="card_date">{{$news[1]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
@@ -204,7 +204,7 @@
                     <img src=@if($news[2]->listImageUrl==null) '/upload/news/16032882732723d092b63885e0d7c260cc007e8b9d.jpg' @else {{$news[2]->listImageUrl}} @endif class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$news[2]->title}}</h5>
-                        <p class="card-text JQ">{{$news[2]->content}}</p>
+                        <p class="card-text JQ">{!!$news[2]->content!!}</p>
                         <div class="bottom_text">
                             <div class="card_date">{{$news[2]->date}}</div>
                             <a href="#" class="btn btn-primary">MORE</a>
